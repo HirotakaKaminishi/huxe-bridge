@@ -1,0 +1,57 @@
+name: daily-rss-ingest
+
+on:
+  schedule:
+    # 0 18 * * * UTC = JST 03:00 (毎日午前 3 時 JST)
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+    inputs:
+      bootstrap_fetch:
+        description: '初回 ingest 時に最新 N 件まで取得する (空なら 1 件のみ)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Run RSS ingest
+        run: |
+          if [ -n "${{ github.event.inputs.bootstrap_fetch }}" ]; then
+            python scripts/ingest_rss.py --bootstrap-fetch ${{ github.event.inputs.bootstrap_fetch }}
+          else
+            python scripts/ingest_rss.py
+          fi
+
+      - name: Commit and push changes
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/
+          if git diff --cached --quiet; then
+            echo "no new content; skipping commit"
+          else
+            git commit -m "chore: daily rss ingest ($(date -u +%Y-%m-%d))"
+            git push
+          fi
