@@ -84,3 +84,36 @@ categories:
       Narrate in Japanese with a precise spec-review tone, avoiding vague language.
 
       '
+- id: vtuber-trends
+  name: VTuber業界トレンド
+  description: VTuber業界・VR/XR・大手事務所動向・配信プラットフォーム
+  active: true
+  tags:
+  - tech
+  - hobby
+  - vtuber
+  sources:
+  - url: https://panora.tokyo/feed/
+    max_items_per_run: 5
+    enabled: true
+  - url: https://hololivepro.com/news/feed/
+    max_items_per_run: 5
+    enabled: true
+  - url: https://www.moguravr.com/feed/
+    max_items_per_run: 5
+    enabled: true
+  - url: https://vspo.jp/news/feed
+    max_items_per_run: 5
+    enabled: true
+  huxe:
+    show_title: VTuber業界トレンド日報
+    show_description: PANORA・MoguLive・ホロライブプロダクション公式・ぶいすぽっ！公式から、VTuber業界・VR/XR技術動向・大手事務所一次情報を毎日ダイジェスト。タレント名・事務所名・楽曲名・プラットフォーム名は原語のまま、業界アナリスト調の落ち着いたトーンで。事務所横断のニュース、IPO・財務、技術トレンド（モーキャプ・VRデバイス）、大型コラボに重点。
+    custom_instructions: Summarize today's items as a VTuber industry trend briefing
+      focused on the Japanese market. Keep talent names, agency names (ホロライブ, にじさんじ,
+      ぶいすぽっ！, VShojo, etc.), song titles, and platform names in their original form.
+      Prioritize agency-level moves (debuts, graduations, restructuring, IPO/earnings),
+      technology shifts (motion capture, VR/AR hardware, distribution platforms),
+      cross-industry collaborations (e-sports, music labels, brand deals), and milestone
+      events (concerts, anniversaries). Treat controversies briefly and factually
+      with no opinion. Skip pure merchandise pre-order news unless tied to a major
+      milestone. Narrate in Japanese with a calm, neutral industry-analyst tone.
