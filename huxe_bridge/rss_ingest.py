@@ -59,7 +59,12 @@ class IngestResult:
 
 
 def _fetch_with_retry(url: str, *, ua: str = USER_AGENT, timeout: float = DEFAULT_TIMEOUT, max_tries: int = 3) -> bytes:
-    """1s, 4s backoff で最大 3 試行。403/404 は retry しない (bot block 永久化を回避)。"""
+    """1s, 4s backoff で最大 3 試行。
+
+    エラー検出は ``response.status_code`` ベースに正規化。
+    - 4xx (client error, 例 403/404): retry なしで即 raise (bot block 永久化を回避)
+    - 5xx / Timeout / ConnectionError: 指定回数まで retry
+    """
     backoff = [0.0, 1.0, 4.0]
     last_err: Exception | None = None
     headers = {"User-Agent": ua, "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, */*"}
@@ -68,15 +73,21 @@ def _fetch_with_retry(url: str, *, ua: str = USER_AGENT, timeout: float = DEFAUL
             time.sleep(backoff[attempt])
         try:
             res = requests.get(url, headers=headers, timeout=timeout)
-            if res.status_code in (403, 404):
-                raise requests.HTTPError(f"{res.status_code} for {url}")
-            res.raise_for_status()
+            code = res.status_code
+            if 400 <= code < 500:
+                # client error: 永久的なので retry しない
+                raise requests.HTTPError(f"{code} client error for {url}", response=res)
+            res.raise_for_status()  # 5xx 系はここで HTTPError 化
             return res.content
         except requests.HTTPError as e:
-            if "403" in str(e) or "404" in str(e):
+            resp = getattr(e, "response", None)
+            status = getattr(resp, "status_code", None)
+            if status is not None and 400 <= status < 500:
+                # client error は raise を伝播 (上位で source 単位 skip)
                 raise
             last_err = e
         except requests.RequestException as e:
+            # Timeout / ConnectionError 等は retry
             last_err = e
     raise RuntimeError(f"fetch failed after {max_tries} tries: {url}: {last_err}")
 
