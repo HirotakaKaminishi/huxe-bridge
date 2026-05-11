@@ -110,7 +110,7 @@ python -m http.server -d dist 8000
 # → http://localhost:8000 で確認
 ```
 
-## MCPサーバが公開するツール一覧 (13ツール)
+## MCPサーバが公開するツール一覧 (15ツール)
 
 | ツール | 用途 |
 |---|---|
@@ -121,12 +121,30 @@ python -m http.server -d dist 8000
 | `list_summaries` | カテゴリ内の要約一覧 |
 | `add_summary` | 要約Markdown追加 |
 | `remove_summary` | 要約削除 |
-| `get_feed_urls` | huxe登録用URL一覧 |
+| `get_feed_urls` | huxe登録用URL一覧(`include_huxe=True`でshow metadataも含む) |
 | `build` | ローカルビルド実行 |
 | `list_sources` | カテゴリ別RSSソース一覧 |
 | `add_source` | RSSソース追加 |
 | `remove_source` | RSSソース削除 |
+| `set_huxe_metadata` | huxe Show metadata 部分更新 |
+| `get_huxe_setup` | huxe登録用4点セット取得 |
 | `git_publish` | add+commit+push |
+
+### huxe Live Station 登録用 4 点セット
+
+`get_huxe_setup <category_id>` (MCP) または `huxe-bridge huxe-setup <category_id>` (CLI) で huxe Live Station にそのまま貼り付けられる 4 フィールドを取得できる:
+
+```json
+{
+  "category_id": "aws-infra",
+  "feed_url": "https://hirotakakaminishi.github.io/huxe-bridge/aws-infra.xml",
+  "show_title": "AWS What's New 日報",
+  "show_description": "AWS公式 What's New の最新発表を毎日ダイジェスト。...",
+  "custom_instructions": "Summarize today's items from this AWS What's New feed. ..."
+}
+```
+
+metadata 未設定カテゴリは `show_title` / `show_description` / `custom_instructions` が `null` で返る (エラーにはしない)。設定は `set_huxe_metadata` または直接 `config/categories.yaml` の各カテゴリ下 `huxe:` ブロック編集で行う。
 
 ## 公式RSSの日次自動取り込み
 

@@ -18,6 +18,17 @@ categories:
   - url: https://aws.amazon.com/about-aws/whats-new/recent/feed/
     max_items_per_run: 5
     enabled: true
+  huxe:
+    show_title: AWS What's New 日報
+    show_description: AWS公式 What's New の最新発表を毎日ダイジェスト。サービス名・リージョン・API 名は原語のまま、変更内容と互換性影響、料金への影響を端的に。マーケ的表現を削ぎ落とした、AWS
+      を業務で扱う実務エンジニア向けのテックニュース番組。
+    custom_instructions: 'Summarize today''s items from this AWS What''s New feed.
+      Keep AWS service names, region codes, instance types, and API names in their
+      original English (do not translate). Skip marketing phrases. For each item give
+      one or two sentences on what changed and any pricing or backward-compatibility
+      impact. Narrate in Japanese with a calm tech-news tone.
+
+      '
 - id: anime-music
   name: アニメ・アイドル音楽
   description: ALI PROJECT、Kalafina系、Suno、音楽生成
@@ -35,6 +46,18 @@ categories:
   - url: http://spice-api.eplus.jp/rss/articles/4/latest.xml?encoded=1
     max_items_per_run: 5
     enabled: true
+  huxe:
+    show_title: アニメ・音楽 Daily
+    show_description: リスアニ！・アニメ！アニメ！・SPICE の公式 RSS から、日本のアニメ・アニソン・声優ニュースを毎日ダイジェスト。深夜ラジオ風の落ち着いたトーンで、Kalafina
+      系・梶浦由記・80〜2000 年代アニメ関連は深めに、その他は軽快に。楽曲名・アーティスト名・声優名は原語のまま。
+    custom_instructions: 'Give me today''s Japanese anime and anisong news from these
+      sources. Keep song titles, artist names, voice actor names, and work titles
+      in their original form. Spend more time on items about ALI PROJECT, Yuki Kajiura,
+      Kalafina, FictionJunction, See-Saw, or reboots/remasters of 80s–2000s anime;
+      cover unrelated idol news in one sentence each. Treat any negative news factually
+      without opinion. Narrate in Japanese with a calm late-night DJ tone.
+
+      '
 - id: fido-auth
   name: FIDO認証
   description: TrustBind、WebAuthn、パスキー、認証仕様
@@ -50,3 +73,14 @@ categories:
   - url: https://developer.chrome.com/blog/feed.xml
     max_items_per_run: 5
     enabled: true
+  huxe:
+    show_title: FIDO / WebAuthn 日報
+    show_description: FIDO Alliance と Chrome Developers blog の最新更新を毎日要約。パスキー・WebAuthn・FIDO2
+      の仕様変更や実装者影響を、専門用語を保ったまま spec レビュー口調で。
+    custom_instructions: 'Summarize today''s items as a passkey / WebAuthn spec review.
+      Keep technical terms in their original form (attestation, residentKey, CTAP
+      2.2, prf extension, largeBlob, etc.). For each item, state concretely what changed
+      and the implementer impact: backward compatible, breaking change, or browser-gated.
+      Narrate in Japanese with a precise spec-review tone, avoiding vague language.
+
+      '
