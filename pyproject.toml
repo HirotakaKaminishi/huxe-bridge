@@ -1,0 +1,24 @@
+[project]
+name = "huxe-bridge"
+version = "0.1.0"
+description = "NotebookLM summaries -> huxe Live Station RSS bridge"
+requires-python = ">=3.10"
+dependencies = [
+  "markdown>=3.5",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+mcp = ["mcp>=1.0"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+huxe-bridge = "huxe_bridge.cli:main"
+huxe-bridge-build = "scripts.build:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["huxe_bridge", "mcp_server", "scripts"]

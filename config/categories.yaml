@@ -1,0 +1,31 @@
+version: 1
+site:
+  title: Personal Knowledge Digest
+  description: NotebookLM要約をhuxe向けに配信するパーソナルフィード
+  base_url: https://kaminishi.github.io/huxe-bridge
+  language: ja
+  author: Kaminishi
+categories:
+- id: aws-infra
+  name: AWSインフラ
+  description: AWSベストプラクティス、新サービス、Terraform、トラブルシュート
+  active: true
+  tags:
+  - tech
+  - infra
+  - aws
+- id: anime-music
+  name: アニメ・アイドル音楽
+  description: ALI PROJECT、Kalafina系、Suno、音楽生成
+  active: true
+  tags:
+  - music
+  - hobby
+- id: fido-auth
+  name: FIDO認証
+  description: TrustBind、WebAuthn、パスキー、認証仕様
+  active: true
+  tags:
+  - tech
+  - security
+  - fido
