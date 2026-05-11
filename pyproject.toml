@@ -17,6 +17,7 @@ dev = ["pytest>=7.0"]
 [project.scripts]
 huxe-bridge = "huxe_bridge.cli:main"
 huxe-bridge-build = "scripts.build:main"
+huxe-bridge-ingest = "scripts.ingest_rss:main"
 
 [build-system]
 requires = ["setuptools>=68"]

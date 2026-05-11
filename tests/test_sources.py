@@ -13,12 +13,16 @@ import huxe_bridge.sources as sources_mod
 
 @pytest.fixture
 def temp_config(tmp_path, monkeypatch):
-    """既存 categories.yaml を tmp にコピーしてパッチ。"""
+    """既存 categories.yaml を sources を空にした状態で tmp にコピーしてパッチ。"""
     src = Path(core.CONFIG)
     tmp_cfg = tmp_path / "categories.yaml"
     shutil.copy(src, tmp_cfg)
+    # 既存 sources をクリア (テストは sources 空状態を前提)
+    cfg = yaml.safe_load(tmp_cfg.read_text(encoding="utf-8"))
+    for c in cfg.get("categories", []):
+        c.pop("sources", None)
+    tmp_cfg.write_text(yaml.safe_dump(cfg, allow_unicode=True, sort_keys=False), encoding="utf-8")
     monkeypatch.setattr(core, "CONFIG", tmp_cfg)
-    # sources_mod は import 時に CONFIG を参照するのでパッチが効く形にしてある
     monkeypatch.setattr(sources_mod, "CONFIG", tmp_cfg)
     return tmp_cfg
 

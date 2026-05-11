@@ -22,10 +22,14 @@ def _load_fixture(name: str) -> bytes:
 @pytest.fixture
 def temp_env(tmp_path, monkeypatch):
     """yaml + content/ をすべて tmp に閉じ込めて副作用を防ぐ。"""
-    # copy config
+    # copy config; clear sources so tests can add their own
     src_cfg = Path(core.CONFIG)
     tmp_cfg = tmp_path / "categories.yaml"
     shutil.copy(src_cfg, tmp_cfg)
+    cfg = yaml.safe_load(tmp_cfg.read_text(encoding="utf-8"))
+    for c in cfg.get("categories", []):
+        c.pop("sources", None)
+    tmp_cfg.write_text(yaml.safe_dump(cfg, allow_unicode=True, sort_keys=False), encoding="utf-8")
     tmp_content = tmp_path / "content"
     tmp_content.mkdir()
 
