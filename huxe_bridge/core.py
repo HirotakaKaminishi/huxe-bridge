@@ -141,16 +141,29 @@ def remove_summary(category_id: str, slug: str) -> dict[str, Any]:
     return {"removed": str(path)}
 
 
-def get_feed_urls() -> dict[str, Any]:
+def get_feed_urls(include_huxe: bool = False) -> dict[str, Any]:
+    """huxe登録用 RSS URL 一覧。
+
+    ``include_huxe=True`` の時は各 feed entry に Show metadata 3 フィールド
+    (``show_title`` / ``show_description`` / ``custom_instructions``) を含める。
+    metadata 未設定カテゴリでは ``None`` を入れる。デフォルト ``False`` で
+    既存呼び出し側に対し後方互換。
+    """
     cfg = _load()
     base = cfg["site"]["base_url"].rstrip("/")
-    feeds = [
-        {
+    feeds = []
+    for c in cfg["categories"]:
+        if not c.get("active", True):
+            continue
+        entry: dict[str, Any] = {
             "category_id": c["id"],
             "name": c["name"],
             "rss_url": f"{base}/{c['id']}.xml",
         }
-        for c in cfg["categories"]
-        if c.get("active", True)
-    ]
+        if include_huxe:
+            huxe = c.get("huxe") or {}
+            entry["show_title"] = huxe.get("show_title")
+            entry["show_description"] = huxe.get("show_description")
+            entry["custom_instructions"] = huxe.get("custom_instructions")
+        feeds.append(entry)
     return {"all_feed": f"{base}/all.xml", "feeds": feeds}

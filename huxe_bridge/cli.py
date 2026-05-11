@@ -17,6 +17,7 @@ usage:
   huxe-bridge add-source <cat> <rss_url> [--max N] [--disable]
   huxe-bridge rm-source <cat> <rss_url>
   huxe-bridge ingest [--dry-run] [--category <id>] [--bootstrap-fetch N]
+  huxe-bridge huxe-setup <category_id>          # huxe登録用4点セット
 """
 from __future__ import annotations
 
@@ -26,7 +27,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from huxe_bridge import core, sources as sources_mod
+from huxe_bridge import core, huxe_metadata, sources as sources_mod
 
 
 def _print(obj) -> None:
@@ -82,6 +83,9 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("category_id")
     s.add_argument("rss_url")
 
+    s = sub.add_parser("huxe-setup", help="show huxe Live Station 4-piece setup for a category")
+    s.add_argument("category_id")
+
     s = sub.add_parser("ingest", help="ingest RSS sources")
     s.add_argument("--dry-run", action="store_true")
     s.add_argument("--category", default=None)
@@ -122,6 +126,9 @@ def main(argv: list[str] | None = None) -> int:
                                       enabled=not args.disable))
     elif args.cmd == "rm-source":
         _print(sources_mod.remove_source(args.category_id, args.rss_url))
+    elif args.cmd == "huxe-setup":
+        base = core._load()["site"]["base_url"]
+        _print(huxe_metadata.build_setup(args.category_id, base))
     elif args.cmd == "ingest":
         root = Path(__file__).resolve().parent.parent
         cmd = [sys.executable, str(root / "scripts" / "ingest_rss.py")]

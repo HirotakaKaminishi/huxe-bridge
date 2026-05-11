@@ -13,7 +13,7 @@ from typing import Any
 
 from mcp.server.fastmcp import FastMCP
 
-from huxe_bridge import core, sources as sources_mod
+from huxe_bridge import core, huxe_metadata, sources as sources_mod
 
 ROOT = Path(__file__).resolve().parent.parent
 BUILD_SCRIPT = ROOT / "scripts" / "build.py"
@@ -75,9 +75,9 @@ def remove_summary(category_id: str, slug: str) -> dict[str, Any]:
 
 
 @mcp.tool()
-def get_feed_urls() -> dict[str, Any]:
-    """huxe登録用RSS URL(activeのみ)。"""
-    return core.get_feed_urls()
+def get_feed_urls(include_huxe: bool = False) -> dict[str, Any]:
+    """huxe登録用RSS URL(activeのみ)。include_huxe=Trueで各エントリにshow metadataを含める。"""
+    return core.get_feed_urls(include_huxe=include_huxe)
 
 
 @mcp.tool()
@@ -113,6 +113,30 @@ def add_source(
 def remove_source(category_id: str, rss_url: str) -> dict[str, Any]:
     """カテゴリから RSS ソースを削除。"""
     return sources_mod.remove_source(category_id, rss_url)
+
+
+@mcp.tool()
+def set_huxe_metadata(
+    category_id: str,
+    show_title: str | None = None,
+    show_description: str | None = None,
+    custom_instructions: str | None = None,
+) -> dict[str, Any]:
+    """huxe Live Station Show の metadata を部分更新。None は既存値を維持。"""
+    return huxe_metadata.set_metadata(
+        category_id,
+        show_title=show_title,
+        show_description=show_description,
+        custom_instructions=custom_instructions,
+    )
+
+
+@mcp.tool()
+def get_huxe_setup(category_id: str) -> dict[str, Any]:
+    """huxe 登録用 4 点セット (feed_url + title + description + custom_instructions) を返す。"""
+    cfg = core._load()
+    base = cfg["site"]["base_url"]
+    return huxe_metadata.build_setup(category_id, base)
 
 
 @mcp.tool()
