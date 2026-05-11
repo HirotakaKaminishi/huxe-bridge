@@ -7,6 +7,7 @@ Claude Code / Claude Desktop から呼べるMCPサーバ。
 from __future__ import annotations
 
 import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -83,7 +84,7 @@ def get_feed_urls() -> dict[str, Any]:
 def build() -> dict[str, Any]:
     """ローカルでビルドを実行。出力は dist/ に入る。"""
     res = subprocess.run(
-        ["python", str(BUILD_SCRIPT)],
+        [sys.executable, str(BUILD_SCRIPT)],
         cwd=str(ROOT),
         capture_output=True,
         text=True,
