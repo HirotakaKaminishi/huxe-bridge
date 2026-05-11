@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>テスト RSS2</title>
+    <link>https://example.com/</link>
+    <description>Test RSS2 feed</description>
+    <item>
+      <title>Item 1</title>
+      <link>https://example.com/item1</link>
+      <pubDate>Sun, 11 May 2026 10:00:00 +0000</pubDate>
+      <guid isPermaLink="false">guid1</guid>
+      <description>First &amp; only description</description>
+    </item>
+    <item>
+      <title>Item 2</title>
+      <link>https://example.com/item2</link>
+      <pubDate>Sun, 11 May 2026 09:00:00 +0000</pubDate>
+      <guid isPermaLink="false">guid2</guid>
+      <description>音楽 &#x301c; ニュース</description>
+    </item>
+    <item>
+      <title>Item 3</title>
+      <link>https://example.com/item3</link>
+      <pubDate>Sat, 10 May 2026 18:00:00 +0000</pubDate>
+      <guid isPermaLink="false">guid3</guid>
+      <description>Plain description</description>
+    </item>
+  </channel>
+</rss>

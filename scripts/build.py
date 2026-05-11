@@ -26,6 +26,10 @@ from xml.sax.saxutils import escape as xml_escape
 import markdown
 import yaml
 
+# huxe_bridge は editable install されている前提。scripts/ は package として
+# 登録済みなので兄弟パッケージ import が可能。
+from huxe_bridge.frontmatter import read_frontmatter
+
 ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / "config" / "categories.yaml"
 CONTENT = ROOT / "content"
@@ -71,9 +75,16 @@ def load_articles(category_id: str) -> list[Article]:
         return []
     items: list[Article] = []
     for md_path in sorted(cdir.glob("*.md")):
-        text = md_path.read_text(encoding="utf-8")
+        raw = md_path.read_text(encoding="utf-8")
+        meta, text = read_frontmatter(raw)
         first = text.splitlines()[0] if text.strip() else ""
-        if first.startswith("#"):
+        if meta.get("title"):
+            title = str(meta["title"])
+            body_md = text.lstrip("\n")
+            # frontmatter の title と body 1 行目の見出しが同一なら見出しを 1 回剥がす
+            if first.startswith("#") and first.lstrip("#").strip() == title:
+                body_md = "\n".join(text.splitlines()[1:]).lstrip("\n")
+        elif first.startswith("#"):
             title = first.lstrip("#").strip()
             body_md = "\n".join(text.splitlines()[1:]).lstrip("\n")
         else:
@@ -82,7 +93,16 @@ def load_articles(category_id: str) -> list[Article]:
         body_html = markdown.markdown(
             body_md, extensions=["fenced_code", "tables"]
         )
-        mtime = datetime.fromtimestamp(md_path.stat().st_mtime, tz=timezone.utc)
+        # frontmatter に published_at があれば優先 (RSS 取り込み記事用)
+        if meta.get("published_at"):
+            try:
+                mtime = datetime.fromisoformat(str(meta["published_at"]))
+                if mtime.tzinfo is None:
+                    mtime = mtime.replace(tzinfo=timezone.utc)
+            except ValueError:
+                mtime = datetime.fromtimestamp(md_path.stat().st_mtime, tz=timezone.utc)
+        else:
+            mtime = datetime.fromtimestamp(md_path.stat().st_mtime, tz=timezone.utc)
         items.append(
             Article(
                 category_id=category_id,
