@@ -22,6 +22,7 @@ from zoneinfo import ZoneInfo
 import feedparser
 import requests
 
+from huxe_bridge.atomic_io import atomic_write_text
 from huxe_bridge.core import CONFIG, CONTENT
 from huxe_bridge.frontmatter import write_frontmatter
 from huxe_bridge.sources import list_sources
@@ -138,8 +139,8 @@ def _save_index(category_id: str, idx: dict[str, Any]) -> None:
     cdir = CONTENT / category_id
     cdir.mkdir(parents=True, exist_ok=True)
     idx["updated_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    with _index_path(category_id).open("w", encoding="utf-8") as f:
-        json.dump(idx, f, ensure_ascii=False, indent=2, sort_keys=True)
+    payload = json.dumps(idx, ensure_ascii=False, indent=2, sort_keys=True)
+    atomic_write_text(_index_path(category_id), payload)
 
 
 def _guid_key(guid: str) -> str:
@@ -213,7 +214,7 @@ def ingest_category(category_id: str, *, dry_run: bool = False, bootstrap_fetch:
             md_path = cdir / f"{slug}.md"
             if not dry_run:
                 cdir.mkdir(parents=True, exist_ok=True)
-                md_path.write_text(_render_md(item, source_url=url), encoding="utf-8")
+                atomic_write_text(md_path, _render_md(item, source_url=url))
             idx["items"][key] = {"slug": slug, "guid": item.guid, "url": url}
             result.added += 1
             added_for_source += 1
