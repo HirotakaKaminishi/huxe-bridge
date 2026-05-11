@@ -23,6 +23,7 @@ from urllib.parse import urlsplit, urlunsplit
 
 import yaml
 
+from huxe_bridge.atomic_io import atomic_write_text
 from huxe_bridge.core import CONFIG
 
 
@@ -32,8 +33,8 @@ def _load() -> dict:
 
 
 def _save(cfg: dict) -> None:
-    with CONFIG.open("w", encoding="utf-8") as f:
-        yaml.safe_dump(cfg, f, allow_unicode=True, sort_keys=False)
+    payload = yaml.safe_dump(cfg, allow_unicode=True, sort_keys=False)
+    atomic_write_text(CONFIG, payload)
 
 
 def _normalize_url(url: str) -> str:

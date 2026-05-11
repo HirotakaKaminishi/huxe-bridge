@@ -214,6 +214,172 @@ def test_ingest_all_skips_inactive(temp_env, monkeypatch):
     assert "aws-infra" not in out
 
 
+# ---------------------------------------------------------------------------
+# description size cap (64KB truncation)
+# ---------------------------------------------------------------------------
+
+
+def _build_rss2_with_huge_description(desc: str) -> bytes:
+    """description だけ巨大な RSS2 を 1 件返す。"""
+    import xml.sax.saxutils as _sx
+    body = _sx.escape(desc)
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        '<rss version="2.0"><channel><title>t</title>'
+        '<item>'
+        '<title>huge</title>'
+        '<link>https://example.com/huge</link>'
+        '<guid>huge-guid-1</guid>'
+        '<pubDate>Tue, 01 Jan 2026 00:00:00 GMT</pubDate>'
+        f'<description>{body}</description>'
+        '</item></channel></rss>'
+    ).encode("utf-8")
+
+
+def test_description_truncated_at_64kb():
+    """100KB description は ~64KB + truncated マーカーで切られる。"""
+    huge = "A" * (100 * 1024)  # 100KB ASCII
+    items = ingest._parse_feed(_build_rss2_with_huge_description(huge))
+    assert len(items) == 1
+    desc = items[0].description_html
+    assert "…[truncated]" in desc
+    # bytes 長は 64KB + マーカー (ASCII でも) を少し超える程度に収まる
+    payload = desc.encode("utf-8")
+    assert len(payload) <= ingest.DEFAULT_MAX_DESC_BYTES + 64
+
+
+def test_description_truncation_utf8_boundary_safe():
+    """multibyte 文字の途中で切られず、結果が valid UTF-8 のまま。"""
+    # 3 byte/char (BMP CJK) を境界に並べる: 64KB を確実に超えるサイズ
+    huge = "あ" * (30 * 1024)  # 3 bytes * 30K = 90KB
+    items = ingest._parse_feed(_build_rss2_with_huge_description(huge))
+    desc = items[0].description_html
+    assert "…[truncated]" in desc
+    # encode → decode が例外なくできること == multibyte 境界 safe
+    payload = desc.encode("utf-8")
+    redecoded = payload.decode("utf-8")  # ここで例外が出たら境界違反
+    assert redecoded == desc
+    # 切られた本体 (マーカー前) は 64KB 以下
+    cut = desc.split("\n\n…[truncated]")[0]
+    assert len(cut.encode("utf-8")) <= ingest.DEFAULT_MAX_DESC_BYTES
+
+
+def test_description_under_limit_not_truncated():
+    """64KB 未満なら truncated マーカーが付かないこと。"""
+    small = "ok " * 100  # 数百 bytes
+    items = ingest._parse_feed(_build_rss2_with_huge_description(small))
+    assert "…[truncated]" not in items[0].description_html
+
+
+# ---------------------------------------------------------------------------
+# _fetch_with_retry: HTTP error handling (status_code based)
+# ---------------------------------------------------------------------------
+
+class _MockResponse:
+    def __init__(self, status_code: int, content: bytes = b""):
+        self.status_code = status_code
+        self.content = content
+
+    def raise_for_status(self):
+        import requests as _req
+        if self.status_code >= 400:
+            raise _req.HTTPError(f"{self.status_code} error", response=self)
+
+
+def _make_counting_get(status_code: int):
+    """指定 status を毎回返す mock。呼び出し回数を counter で観測する。"""
+    counter = {"n": 0}
+
+    def _get(url, headers=None, timeout=None):
+        counter["n"] += 1
+        return _MockResponse(status_code)
+
+    return _get, counter
+
+
+def test_fetch_403_does_not_retry(monkeypatch):
+    """403 は 1 回試行のみで即 raise (retry なし)。"""
+    import requests
+    get_fn, counter = _make_counting_get(403)
+    monkeypatch.setattr(requests, "get", get_fn)
+    monkeypatch.setattr(ingest.time, "sleep", lambda s: None)
+    with pytest.raises(requests.HTTPError):
+        ingest._fetch_with_retry("https://example.com/feed", max_tries=3)
+    assert counter["n"] == 1
+
+
+def test_fetch_404_does_not_retry(monkeypatch):
+    import requests
+    get_fn, counter = _make_counting_get(404)
+    monkeypatch.setattr(requests, "get", get_fn)
+    monkeypatch.setattr(ingest.time, "sleep", lambda s: None)
+    with pytest.raises(requests.HTTPError):
+        ingest._fetch_with_retry("https://example.com/feed", max_tries=3)
+    assert counter["n"] == 1
+
+
+def test_fetch_500_retries_up_to_max_tries(monkeypatch):
+    """5xx は max_tries まで retry してから RuntimeError。"""
+    import requests
+    get_fn, counter = _make_counting_get(500)
+    monkeypatch.setattr(requests, "get", get_fn)
+    monkeypatch.setattr(ingest.time, "sleep", lambda s: None)
+    with pytest.raises(RuntimeError, match="fetch failed after 3 tries"):
+        ingest._fetch_with_retry("https://example.com/feed", max_tries=3)
+    assert counter["n"] == 3
+
+
+def test_fetch_500_with_403_in_body_still_retries(monkeypatch):
+    """エラー本文に '403' を含む 500 でも文字列マッチで誤判定せず retry する (旧実装の回帰テスト)。"""
+    import requests
+
+    counter = {"n": 0}
+
+    def _get(url, headers=None, timeout=None):
+        counter["n"] += 1
+        # 500 だが body に "403" を含む -- 旧コードは str(e) に 403 が出ると即 raise していた
+        return _MockResponse(500, content=b"<html>error: token 403 in body</html>")
+
+    monkeypatch.setattr(requests, "get", get_fn := _get)
+    monkeypatch.setattr(ingest.time, "sleep", lambda s: None)
+    with pytest.raises(RuntimeError):
+        ingest._fetch_with_retry("https://example.com/feed", max_tries=3)
+    assert counter["n"] == 3, "500 with '403' in body must still be retried"
+
+
+def test_fetch_timeout_retries(monkeypatch):
+    """Timeout 等の RequestException は retry 対象。"""
+    import requests
+
+    counter = {"n": 0}
+
+    def _get(url, headers=None, timeout=None):
+        counter["n"] += 1
+        raise requests.ConnectionError("network down")
+
+    monkeypatch.setattr(requests, "get", _get)
+    monkeypatch.setattr(ingest.time, "sleep", lambda s: None)
+    with pytest.raises(RuntimeError):
+        ingest._fetch_with_retry("https://example.com/feed", max_tries=3)
+    assert counter["n"] == 3
+
+
+def test_fetch_200_returns_content_no_retry(monkeypatch):
+    """正常レスポンスは 1 回で返り、bytes を返す。"""
+    import requests
+    counter = {"n": 0}
+
+    def _get(url, headers=None, timeout=None):
+        counter["n"] += 1
+        return _MockResponse(200, content=b"<rss/>")
+
+    monkeypatch.setattr(requests, "get", _get)
+    monkeypatch.setattr(ingest.time, "sleep", lambda s: None)
+    out = ingest._fetch_with_retry("https://example.com/feed", max_tries=3)
+    assert out == b"<rss/>"
+    assert counter["n"] == 1
+
+
 def test_rebuild_index_from_md_files(temp_env, monkeypatch):
     """md ファイルから .ingest-index.json を再構築できる。"""
     _patch_fetch(monkeypatch, _load_fixture("feed_rss2.xml"))
