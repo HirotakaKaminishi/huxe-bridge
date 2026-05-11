@@ -2,7 +2,7 @@ version: 1
 site:
   title: Personal Knowledge Digest
   description: NotebookLM要約をhuxe向けに配信するパーソナルフィード
-  base_url: https://kaminishi.github.io/huxe-bridge
+  base_url: https://hirotakakaminishi.github.io/huxe-bridge
   language: ja
   author: Kaminishi
 categories:
