@@ -14,6 +14,10 @@ categories:
   - tech
   - infra
   - aws
+  sources:
+  - url: https://aws.amazon.com/about-aws/whats-new/recent/feed/
+    max_items_per_run: 5
+    enabled: true
 - id: anime-music
   name: アニメ・アイドル音楽
   description: ALI PROJECT、Kalafina系、Suno、音楽生成
@@ -21,6 +25,16 @@ categories:
   tags:
   - music
   - hobby
+  sources:
+  - url: https://lisani.jp/feed/
+    max_items_per_run: 5
+    enabled: true
+  - url: https://animeanime.jp/rss/index.rdf
+    max_items_per_run: 5
+    enabled: true
+  - url: http://spice-api.eplus.jp/rss/articles/4/latest.xml?encoded=1
+    max_items_per_run: 5
+    enabled: true
 - id: fido-auth
   name: FIDO認証
   description: TrustBind、WebAuthn、パスキー、認証仕様
@@ -29,3 +43,10 @@ categories:
   - tech
   - security
   - fido
+  sources:
+  - url: https://fidoalliance.org/feed/
+    max_items_per_run: 5
+    enabled: true
+  - url: https://developer.chrome.com/blog/feed.xml
+    max_items_per_run: 5
+    enabled: true

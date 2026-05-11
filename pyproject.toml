@@ -6,6 +6,8 @@ requires-python = ">=3.10"
 dependencies = [
   "markdown>=3.5",
   "pyyaml>=6.0",
+  "feedparser>=6.0",
+  "requests>=2.31",
 ]
 
 [project.optional-dependencies]
@@ -15,6 +17,7 @@ dev = ["pytest>=7.0"]
 [project.scripts]
 huxe-bridge = "huxe_bridge.cli:main"
 huxe-bridge-build = "scripts.build:main"
+huxe-bridge-ingest = "scripts.ingest_rss:main"
 
 [build-system]
 requires = ["setuptools>=68"]

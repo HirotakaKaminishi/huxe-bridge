@@ -2,7 +2,7 @@
 huxe-bridge MCP server
 ======================
 Claude Code / Claude Desktop から呼べるMCPサーバ。
-実体は huxe_bridge.core の関数を MCP tool として公開しているだけ。
+実体は huxe_bridge.core / sources の関数を MCP tool として公開している (13 ツール)。
 """
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from typing import Any
 
 from mcp.server.fastmcp import FastMCP
 
-from huxe_bridge import core
+from huxe_bridge import core, sources as sources_mod
 
 ROOT = Path(__file__).resolve().parent.parent
 BUILD_SCRIPT = ROOT / "scripts" / "build.py"
@@ -90,6 +90,29 @@ def build() -> dict[str, Any]:
         text=True,
     )
     return {"returncode": res.returncode, "stdout": res.stdout, "stderr": res.stderr}
+
+
+@mcp.tool()
+def list_sources(category_id: str | None = None) -> list[dict[str, Any]]:
+    """カテゴリ別 RSS ソース一覧。category_id 省略時は全カテゴリ。"""
+    return sources_mod.list_sources(category_id)
+
+
+@mcp.tool()
+def add_source(
+    category_id: str,
+    rss_url: str,
+    max_items_per_run: int = 5,
+    enabled: bool = True,
+) -> dict[str, Any]:
+    """カテゴリに RSS ソースを追加。max_items_per_run はソース単位の per-run 上限。"""
+    return sources_mod.add_source(category_id, rss_url, max_items_per_run, enabled)
+
+
+@mcp.tool()
+def remove_source(category_id: str, rss_url: str) -> dict[str, Any]:
+    """カテゴリから RSS ソースを削除。"""
+    return sources_mod.remove_source(category_id, rss_url)
 
 
 @mcp.tool()

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>テスト Atom</title>
+  <link href="https://example.com/"/>
+  <updated>2026-05-11T10:00:00Z</updated>
+  <id>urn:atom:feed</id>
+
+  <entry>
+    <title>Item 1</title>
+    <link href="https://example.com/item1"/>
+    <id>urn:atom:1</id>
+    <updated>2026-05-11T10:00:00Z</updated>
+    <summary>First description with &amp; entity</summary>
+  </entry>
+
+  <entry>
+    <title>Item 2</title>
+    <link href="https://example.com/item2"/>
+    <id>urn:atom:2</id>
+    <updated>2026-05-11T09:00:00Z</updated>
+    <summary>音楽 &#x301c; ニュース</summary>
+  </entry>
+
+  <entry>
+    <title>Item 3</title>
+    <link href="https://example.com/item3"/>
+    <id>urn:atom:3</id>
+    <updated>2026-05-10T18:00:00Z</updated>
+    <summary>Plain description</summary>
+  </entry>
+</feed>
