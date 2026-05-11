@@ -95,6 +95,11 @@
       "slug": null,
       "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
     },
+    "2966483746a280a87aa7afcca17dd173db77fd35": {
+      "guid": "dbc8658390399972d08b05488e72a0435885c771",
+      "slug": "2026-05-08-2966483746",
+      "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
+    },
     "29fc8c4261d55a332d407dc58a0491ff8e9917c2": {
       "bootstrap_skipped": true,
       "guid": "c56377d7796983c48f22623be46a1e0d9fe7ea53",
@@ -146,6 +151,11 @@
       "bootstrap_skipped": true,
       "guid": "588490bd0237c3f97eaa4b960b920571692b10c5",
       "slug": null,
+      "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
+    },
+    "4329a2910fb5b40db55b21353ab8c8cb3d5586ec": {
+      "guid": "fd1eafa0980dbfe3fc64e4e34c129a3b4740217d",
+      "slug": "2026-05-11-4329a2910f",
       "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
     },
     "462c100b899d8826f9e6e055aed516f440fde199": {
@@ -284,6 +294,11 @@
       "bootstrap_skipped": true,
       "guid": "41ba7e756346ba4dd18be104adc9f18104e1f531",
       "slug": null,
+      "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
+    },
+    "79ab62ff2c3a153a2cca702a9fd58a985e173d22": {
+      "guid": "0f0200697d78fb2699dcfb62e6277a0e8a07760d",
+      "slug": "2026-05-12-79ab62ff2c",
       "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
     },
     "79cd4cc13bb95b6a91ce719b92e0e3e055fd6c0e": {
@@ -519,6 +534,11 @@
       "slug": null,
       "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
     },
+    "d63541d3d73cf81f284dd9a12d68760c2f3925ea": {
+      "guid": "ce089698b6dfe2bfcf22c5abd2430c917f707928",
+      "slug": "2026-05-11-d63541d3d7",
+      "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
+    },
     "ddfbd0d1dccc7fe9166c8bd1eda34ee633cd1a56": {
       "bootstrap_skipped": true,
       "guid": "11eb46f12a11728fe9b9e7a3af69bf6a77953357",
@@ -598,6 +618,6 @@
       "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
     }
   },
-  "updated_at": "2026-05-11T11:31:24Z",
+  "updated_at": "2026-05-11T19:52:42Z",
   "version": 1
 }
