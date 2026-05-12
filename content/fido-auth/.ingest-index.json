@@ -619,6 +619,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "ed341363b7189b670497cd1d161789751607d359": {
+      "guid": "https://developer.chrome.com/blog/webauthn-immediate-ui?hl=en",
+      "slug": "2026-05-12-ed341363b7",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "eefa1723ebbd4b504afc47299bd12f8fe9fc941b": {
       "guid": "https://developer.chrome.com/blog/chrome-149-beta?hl=en",
       "slug": "2026-05-06-eefa1723eb",
@@ -649,6 +654,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-05-11T19:52:46Z",
+  "updated_at": "2026-05-12T19:57:51Z",
   "version": 1
 }
