@@ -131,6 +131,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "3a65a498476fd1ebac05f499e171156421f06f6c": {
+      "guid": "https://developer.chrome.com/blog/install-element-ot?hl=en",
+      "slug": "2026-05-12-3a65a49847",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "3b5049f5fe6f1b843e839a54d057308703b371e6": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=88579",
@@ -654,6 +659,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-05-12T19:57:51Z",
+  "updated_at": "2026-05-13T19:59:39Z",
   "version": 1
 }
