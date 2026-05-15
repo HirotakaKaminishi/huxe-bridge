@@ -413,6 +413,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "9723f46d16ab27b2067ba3e72f8a066f9012408f": {
+      "guid": "https://developer.chrome.com/blog/gap-decorations-stable?hl=en",
+      "slug": "2026-05-15-9723f46d16",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "9866c4ef000bdedca2a78248895dd85a57549f14": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=88154",
@@ -674,6 +679,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-05-14T19:50:27Z",
+  "updated_at": "2026-05-15T19:42:38Z",
   "version": 1
 }

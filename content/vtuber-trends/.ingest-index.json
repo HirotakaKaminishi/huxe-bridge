@@ -80,6 +80,11 @@
       "slug": null,
       "url": "https://hololivepro.com/news/feed/"
     },
+    "2482044ed5190141ec49c794fd50d326f456ac9c": {
+      "guid": "https://www.moguravr.com/?p=312841",
+      "slug": "2026-05-15-2482044ed5",
+      "url": "https://www.moguravr.com/feed/"
+    },
     "26be38c852a682b1325982f86c7ba4676e5a1653": {
       "guid": "https://www.moguravr.com/?p=312406",
       "slug": "2026-05-12-26be38c852",
@@ -154,6 +159,11 @@
       "slug": "2026-05-14-4c0cd39367",
       "url": "https://panora.tokyo/feed/"
     },
+    "4d442242d5179d20d6996d4f74642065b663d2b7": {
+      "guid": "https://panora.tokyo/?p=142279",
+      "slug": "2026-05-15-4d442242d5",
+      "url": "https://panora.tokyo/feed/"
+    },
     "50c91b7c8532d820a15f24396d13158c572c5e9e": {
       "bootstrap_skipped": true,
       "guid": "https://panora.tokyo/?p=141636",
@@ -164,6 +174,11 @@
       "guid": "https://panora.tokyo/?p=141754",
       "slug": "2026-05-11-549102bf87",
       "url": "https://panora.tokyo/feed/"
+    },
+    "569d83614bc1817a5282b47c2b14a5162c21a49c": {
+      "guid": "https://www.moguravr.com/?p=312815",
+      "slug": "2026-05-15-569d83614b",
+      "url": "https://www.moguravr.com/feed/"
     },
     "5776883fe904c47fd24318ad8656968ef67bfd34": {
       "bootstrap_skipped": true,
@@ -244,6 +259,11 @@
       "slug": "2026-05-11-6f18c76dde",
       "url": "https://www.moguravr.com/feed/"
     },
+    "719bbaa6cad0e0c22297973912c4aae600f1ea05": {
+      "guid": "https://panora.tokyo/?p=142293",
+      "slug": "2026-05-15-719bbaa6ca",
+      "url": "https://panora.tokyo/feed/"
+    },
     "7383e7072e94ccc63c66a86d7e5ee66ce8ad1a3b": {
       "bootstrap_skipped": true,
       "guid": "https://vspo.jp/?p=1942",
@@ -300,6 +320,11 @@
       "slug": "2026-05-13-7e4933df38",
       "url": "https://www.moguravr.com/feed/"
     },
+    "7e805f782f3a5cbdd4339df4408b4d92e1142584": {
+      "guid": "https://panora.tokyo/?p=142265",
+      "slug": "2026-05-15-7e805f782f",
+      "url": "https://panora.tokyo/feed/"
+    },
     "808a45cbbdc798908e921a28d7663539277db93e": {
       "bootstrap_skipped": true,
       "guid": "https://vspo.jp/?p=2498",
@@ -328,6 +353,11 @@
       "guid": "https://vspo.jp/?p=5164",
       "slug": null,
       "url": "https://vspo.jp/news/feed"
+    },
+    "9209e6b9e71c44ed785077046b9ccd06487fafcf": {
+      "guid": "https://www.moguravr.com/?p=312806",
+      "slug": "2026-05-15-9209e6b9e7",
+      "url": "https://www.moguravr.com/feed/"
     },
     "9373707f3f07ca3827b4c347d084f099594fbf8f": {
       "bootstrap_skipped": true,
@@ -422,6 +452,11 @@
       "slug": "2026-05-14-b931a7e11e",
       "url": "https://www.moguravr.com/feed/"
     },
+    "ba493da68f6c208c219268d7d83e79195204fcc9": {
+      "guid": "https://www.moguravr.com/?p=312837",
+      "slug": "2026-05-15-ba493da68f",
+      "url": "https://www.moguravr.com/feed/"
+    },
     "bab1dfa04127d0df1e80517ed5b7bf24c919657b": {
       "bootstrap_skipped": true,
       "guid": "https://vspo.jp/?p=9184",
@@ -433,6 +468,16 @@
       "guid": "https://www.moguravr.com/?p=312254",
       "slug": null,
       "url": "https://www.moguravr.com/feed/"
+    },
+    "c21c887e23d24582e34eda2e848d6b552a6d3ca6": {
+      "guid": "https://www.moguravr.com/?p=312822",
+      "slug": "2026-05-15-c21c887e23",
+      "url": "https://www.moguravr.com/feed/"
+    },
+    "c25cabc8c54eb715eac28c06e4be9adf1c4649bb": {
+      "guid": "https://panora.tokyo/?p=142316",
+      "slug": "2026-05-15-c25cabc8c5",
+      "url": "https://panora.tokyo/feed/"
     },
     "c2eeaab7d1d454b6940fd3d08e9f03b31e13b8de": {
       "bootstrap_skipped": true,
@@ -462,6 +507,11 @@
       "guid": "http://hololivepro.com/?guid=9591a09c96c96121cc094694f7830aba",
       "slug": null,
       "url": "https://hololivepro.com/news/feed/"
+    },
+    "c7b3e8b63fac815149dba7b31ff864f1959b2ea1": {
+      "guid": "https://panora.tokyo/?p=142288",
+      "slug": "2026-05-15-c7b3e8b63f",
+      "url": "https://panora.tokyo/feed/"
     },
     "c8a7ea01d59cacb1ff2e520fa3177a03c1ec2bce": {
       "bootstrap_skipped": true,
@@ -638,6 +688,6 @@
       "url": "https://vspo.jp/news/feed"
     }
   },
-  "updated_at": "2026-05-14T19:50:32Z",
+  "updated_at": "2026-05-15T19:42:42Z",
   "version": 1
 }
