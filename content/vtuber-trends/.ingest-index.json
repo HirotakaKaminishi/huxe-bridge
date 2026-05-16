@@ -11,6 +11,11 @@
       "slug": "2026-05-08-09d0c933a4",
       "url": "https://hololivepro.com/news/feed/"
     },
+    "0a555f5bcfbcc9969be33849d4102887041caec7": {
+      "guid": "https://panora.tokyo/?p=142432",
+      "slug": "2026-05-16-0a555f5bcf",
+      "url": "https://panora.tokyo/feed/"
+    },
     "108b99c48427783df730a64809a13ef53123a684": {
       "bootstrap_skipped": true,
       "guid": "https://www.moguravr.com/?p=312359",
@@ -28,6 +33,11 @@
       "guid": "https://vspo.jp/?p=3799",
       "slug": null,
       "url": "https://vspo.jp/news/feed"
+    },
+    "158a0a56bb57c064a0d685fb415950360443cb8e": {
+      "guid": "https://www.moguravr.com/?p=312718",
+      "slug": "2026-05-15-158a0a56bb",
+      "url": "https://www.moguravr.com/feed/"
     },
     "1754a213af77a0623653cbf11708bb0c6af70b4a": {
       "guid": "https://www.moguravr.com/?p=312636",
@@ -67,6 +77,11 @@
       "guid": "https://vspo.jp/?p=1544",
       "slug": null,
       "url": "https://vspo.jp/news/feed"
+    },
+    "1f9d967b27202ba2d949f3c7763ac20fc9829448": {
+      "guid": "https://www.moguravr.com/?p=312750",
+      "slug": "2026-05-15-1f9d967b27",
+      "url": "https://www.moguravr.com/feed/"
     },
     "21bc96d84057b975568d81178de3abe18acc0517": {
       "bootstrap_skipped": true,
@@ -108,6 +123,11 @@
       "slug": null,
       "url": "https://panora.tokyo/feed/"
     },
+    "2fe32e262092fd53f36dfdb7482c7587b23595ff": {
+      "guid": "https://panora.tokyo/?p=142298",
+      "slug": "2026-05-16-2fe32e2620",
+      "url": "https://panora.tokyo/feed/"
+    },
     "30b08420fb2a87305d18c8df20e31f20b53507b2": {
       "bootstrap_skipped": true,
       "guid": "https://vspo.jp/?p=12275",
@@ -124,6 +144,11 @@
       "guid": "https://panora.tokyo/?p=141943",
       "slug": "2026-05-13-351fc96089",
       "url": "https://panora.tokyo/feed/"
+    },
+    "3db93bb1ab9badd84487eef6c55839969dc2cf4d": {
+      "guid": "https://www.moguravr.com/?p=312709",
+      "slug": "2026-05-15-3db93bb1ab",
+      "url": "https://www.moguravr.com/feed/"
     },
     "41f803b99c4e5a2d09f8eddbfbd9fde218d32a2e": {
       "bootstrap_skipped": true,
@@ -231,11 +256,21 @@
       "slug": null,
       "url": "https://panora.tokyo/feed/"
     },
+    "65d06630122d9007d915fb172a50c59f55eb7e4a": {
+      "guid": "https://www.moguravr.com/?p=312795",
+      "slug": "2026-05-15-65d0663012",
+      "url": "https://www.moguravr.com/feed/"
+    },
     "6a464bb07f3f73f0835ab211c1973ce1d437c372": {
       "bootstrap_skipped": true,
       "guid": "https://vspo.jp/?p=7321",
       "slug": null,
       "url": "https://vspo.jp/news/feed"
+    },
+    "6af37f579ea0a28c4c2ab4841031c0d0d417109a": {
+      "guid": "https://panora.tokyo/?p=142369",
+      "slug": "2026-05-16-6af37f579e",
+      "url": "https://panora.tokyo/feed/"
     },
     "6b7d020eda1a985d01beb277059ddf06633576e9": {
       "bootstrap_skipped": true,
@@ -375,6 +410,16 @@
       "slug": "2026-05-12-9751277bb0",
       "url": "https://panora.tokyo/feed/"
     },
+    "9859e8c27a70e73addec16aa8c959664448b0e7c": {
+      "guid": "https://www.moguravr.com/?p=312829",
+      "slug": "2026-05-15-9859e8c27a",
+      "url": "https://www.moguravr.com/feed/"
+    },
+    "98cfff42b26969a87bc06c5873d738480c3fcd65": {
+      "guid": "https://panora.tokyo/?p=142447",
+      "slug": "2026-05-16-98cfff42b2",
+      "url": "https://panora.tokyo/feed/"
+    },
     "a23251550ce1ba7e30a41671293f88b86e07f9b3": {
       "bootstrap_skipped": true,
       "guid": "http://hololivepro.com/?guid=c5df5529febe160f98905e2b192cc25a",
@@ -495,6 +540,11 @@
       "guid": "https://vspo.jp/?p=13100",
       "slug": null,
       "url": "https://vspo.jp/news/feed"
+    },
+    "c4f7a032ddfaf9ce0b8981e1a15219912cf252e2": {
+      "guid": "https://panora.tokyo/?p=142419",
+      "slug": "2026-05-16-c4f7a032dd",
+      "url": "https://panora.tokyo/feed/"
     },
     "c51e321341d7abac506c1c4fcce7ab9577191f82": {
       "bootstrap_skipped": true,
@@ -688,6 +738,6 @@
       "url": "https://vspo.jp/news/feed"
     }
   },
-  "updated_at": "2026-05-15T19:42:42Z",
+  "updated_at": "2026-05-16T19:09:57Z",
   "version": 1
 }
