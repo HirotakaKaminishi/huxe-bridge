@@ -131,6 +131,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "383ea46b47779c27401efa0e0fc8a659d5e6aec7": {
+      "guid": "https://developer.chrome.com/blog/html-in-canvas-origin-trial?hl=en",
+      "slug": "2026-05-19-383ea46b47",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "3a65a498476fd1ebac05f499e171156421f06f6c": {
       "guid": "https://developer.chrome.com/blog/install-element-ot?hl=en",
       "slug": "2026-05-12-3a65a49847",
@@ -247,6 +252,11 @@
       "guid": "https://fidoalliance.org/?p=89169",
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
+    },
+    "66f1eb707e899af9f28532db72d44a69c7feef2b": {
+      "guid": "https://developer.chrome.com/blog/declarative-partial-updates?hl=en",
+      "slug": "2026-05-19-66f1eb707e",
+      "url": "https://developer.chrome.com/blog/feed.xml"
     },
     "6abc5c7a9c721c33b8a215a26e387534f566d5d6": {
       "bootstrap_skipped": true,
@@ -679,6 +689,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-05-18T19:48:09Z",
+  "updated_at": "2026-05-19T19:55:27Z",
   "version": 1
 }
