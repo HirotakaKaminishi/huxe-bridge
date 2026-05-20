@@ -120,6 +120,16 @@
       "slug": null,
       "url": "https://hololivepro.com/news/feed/"
     },
+    "221b3b0a690ec9c045102e32ae5c66c04b28455f": {
+      "guid": "https://www.moguravr.com/?p=313202",
+      "slug": "2026-05-20-221b3b0a69",
+      "url": "https://www.moguravr.com/feed/"
+    },
+    "22e717fea990d8d18bbda071a398150856b941fa": {
+      "guid": "https://www.moguravr.com/?p=313207",
+      "slug": "2026-05-20-22e717fea9",
+      "url": "https://www.moguravr.com/feed/"
+    },
     "2482044ed5190141ec49c794fd50d326f456ac9c": {
       "guid": "https://www.moguravr.com/?p=312841",
       "slug": "2026-05-15-2482044ed5",
@@ -147,6 +157,11 @@
       "slug": null,
       "url": "https://hololivepro.com/news/feed/"
     },
+    "2bb8d8d3bbfc9bdbc2aadc3537f3ba7d29964e6b": {
+      "guid": "https://panora.tokyo/?p=143094",
+      "slug": "2026-05-20-2bb8d8d3bb",
+      "url": "https://panora.tokyo/feed/"
+    },
     "2e2699422b0c025584f59daac97f2af5f83f2b99": {
       "bootstrap_skipped": true,
       "guid": "https://panora.tokyo/?p=141693",
@@ -169,6 +184,11 @@
       "guid": "https://vspo.jp/?p=6640",
       "slug": null,
       "url": "https://vspo.jp/news/feed"
+    },
+    "3205a3c9d971e5412f629623db02861a38c87110": {
+      "guid": "https://www.moguravr.com/?p=313234",
+      "slug": "2026-05-20-3205a3c9d9",
+      "url": "https://www.moguravr.com/feed/"
     },
     "32226e54198b17ba40169cb79d98880007a08119": {
       "guid": "https://panora.tokyo/?p=142878",
@@ -260,6 +280,11 @@
       "guid": "https://vspo.jp/?p=11561",
       "slug": null,
       "url": "https://vspo.jp/news/feed"
+    },
+    "57a477c61d3ea89d816d30bae0b85f6c9af81761": {
+      "guid": "https://panora.tokyo/?p=141364",
+      "slug": "2026-05-20-57a477c61d",
+      "url": "https://panora.tokyo/feed/"
     },
     "57eb82866844995422c4b659764a27013cc17cbe": {
       "guid": "http://hololivepro.com/?guid=f773ce2b9bf5905d662e3fc3a05f268b",
@@ -458,6 +483,11 @@
       "slug": null,
       "url": "https://vspo.jp/news/feed"
     },
+    "83f121343864acc9c0ca7b5a9ce031b2929338fc": {
+      "guid": "https://panora.tokyo/?p=142894",
+      "slug": "2026-05-20-83f1213438",
+      "url": "https://panora.tokyo/feed/"
+    },
     "8903d60a95d53cf37b9360d5ccaa284f3c50feb0": {
       "guid": "https://panora.tokyo/?p=142117",
       "slug": "2026-05-14-8903d60a95",
@@ -558,6 +588,11 @@
       "slug": null,
       "url": "https://vspo.jp/news/feed"
     },
+    "a700327720ed57134c6f6ffdb3285c0c962d0091": {
+      "guid": "https://panora.tokyo/?p=143075",
+      "slug": "2026-05-20-a700327720",
+      "url": "https://panora.tokyo/feed/"
+    },
     "a79e4c573b48699cb95bcbbe6b8726e233f169b2": {
       "bootstrap_skipped": true,
       "guid": "http://hololivepro.com/?guid=f40d5abf7505c03ddcf68e6ce926d72f",
@@ -586,11 +621,21 @@
       "slug": null,
       "url": "https://vspo.jp/news/feed"
     },
+    "b03f6978ae5e487f8c89e8e86d29f10bc366fa8d": {
+      "guid": "https://panora.tokyo/?p=142860",
+      "slug": "2026-05-20-b03f6978ae",
+      "url": "https://panora.tokyo/feed/"
+    },
     "b1b70090310ca2f6638c9437ec29e61e1a2f5528": {
       "bootstrap_skipped": true,
       "guid": "https://vspo.jp/?p=2832",
       "slug": null,
       "url": "https://vspo.jp/news/feed"
+    },
+    "b23e0254423e33f31f8d50f7742354cdf7e46611": {
+      "guid": "https://www.moguravr.com/?p=313280",
+      "slug": "2026-05-20-b23e025442",
+      "url": "https://www.moguravr.com/feed/"
     },
     "b385e3ea8d903c2a201ec29038314f24f9d546cf": {
       "guid": "https://panora.tokyo/?p=141872",
@@ -835,6 +880,11 @@
       "slug": null,
       "url": "https://vspo.jp/news/feed"
     },
+    "f7e123c6bf83ea205a3845e4668ecd117f3a5b71": {
+      "guid": "https://www.moguravr.com/?p=313285",
+      "slug": "2026-05-20-f7e123c6bf",
+      "url": "https://www.moguravr.com/feed/"
+    },
     "f9d89295a4f817bb8955b8797568f33e50543642": {
       "guid": "https://www.moguravr.com/?p=312554",
       "slug": "2026-05-13-f9d89295a4",
@@ -863,6 +913,6 @@
       "url": "https://vspo.jp/news/feed"
     }
   },
-  "updated_at": "2026-05-19T19:55:30Z",
+  "updated_at": "2026-05-20T20:21:54Z",
   "version": 1
 }
