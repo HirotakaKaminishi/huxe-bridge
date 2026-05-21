@@ -669,6 +669,11 @@
       "slug": "2026-05-12-ed341363b7",
       "url": "https://developer.chrome.com/blog/feed.xml"
     },
+    "ee52e5b73fb8048351294ee06e766ce02470e633": {
+      "guid": "https://fidoalliance.org/?p=89646",
+      "slug": "2026-05-21-ee52e5b73f",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "eefa1723ebbd4b504afc47299bd12f8fe9fc941b": {
       "guid": "https://developer.chrome.com/blog/chrome-149-beta?hl=en",
       "slug": "2026-05-06-eefa1723eb",
@@ -704,6 +709,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-05-20T20:21:50Z",
+  "updated_at": "2026-05-21T19:57:37Z",
   "version": 1
 }
