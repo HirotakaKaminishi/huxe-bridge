@@ -42,6 +42,11 @@
       "slug": null,
       "url": "https://developer.chrome.com/blog/feed.xml"
     },
+    "0f9771721b70c853b60025f13eca9b287d9b1b22": {
+      "guid": "https://developer.chrome.com/blog/extensions-io-2026?hl=en",
+      "slug": "2026-05-22-0f9771721b",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "117d6cbbe88ae40128afcdf1610045dc85045a6d": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=88655",
@@ -158,6 +163,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "3f9ddc8e7572099f0b5633251d970c045fccfee1": {
+      "guid": "https://developer.chrome.com/blog/io26-web-identity?hl=en",
+      "slug": "2026-05-21-3f9ddc8e75",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "40f1026664d819836330466387d04f97d6110aa9": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=88279",
@@ -214,6 +224,11 @@
     "545387c984f5ff0f79b670fc96624ceaa2189147": {
       "guid": "https://developer.chrome.com/blog/new-in-chrome-148?hl=en",
       "slug": "2026-05-05-545387c984",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
+    "54d60f0cf0987c3626a4fa7355318cd184f805e2": {
+      "guid": "https://developer.chrome.com/blog/new-in-chrome-io26?hl=en",
+      "slug": "2026-05-21-54d60f0cf0",
       "url": "https://developer.chrome.com/blog/feed.xml"
     },
     "55f48f1b5d4e10c5b8eb1344ab94c7f8d5bb8eb7": {
@@ -709,6 +724,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-05-21T19:57:37Z",
+  "updated_at": "2026-05-22T19:51:48Z",
   "version": 1
 }
