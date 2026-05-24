@@ -16,6 +16,11 @@
       "slug": "2026-05-16-0a555f5bcf",
       "url": "https://panora.tokyo/feed/"
     },
+    "0bce181aa1a78824f998b1e47e3f4851effa5518": {
+      "guid": "https://panora.tokyo/?p=143354",
+      "slug": "2026-05-24-0bce181aa1",
+      "url": "https://panora.tokyo/feed/"
+    },
     "0d9c2cf5fc32673f7843f2c729154604056fc52e": {
       "guid": "https://panora.tokyo/?p=142847",
       "slug": "2026-05-19-0d9c2cf5fc",
@@ -250,6 +255,11 @@
       "guid": "https://vspo.jp/?p=10093",
       "slug": null,
       "url": "https://vspo.jp/news/feed"
+    },
+    "41fdb4ff1710fc07f5059aa28639a322f4eca695": {
+      "guid": "https://panora.tokyo/?p=143228",
+      "slug": "2026-05-22-41fdb4ff17",
+      "url": "https://panora.tokyo/feed/"
     },
     "4578c0257cb05b76c5e66584b5569948f81c7002": {
       "bootstrap_skipped": true,
@@ -1063,6 +1073,6 @@
       "url": "https://vspo.jp/news/feed"
     }
   },
-  "updated_at": "2026-05-23T19:15:21Z",
+  "updated_at": "2026-05-24T19:21:17Z",
   "version": 1
 }
