@@ -180,6 +180,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "426165368d295d4f244c5bc9207b24065199ab1b": {
+      "guid": "https://developer.chrome.com/blog/build-new-features-using-built-in-ai-in-chrome-io2026?hl=en",
+      "slug": "2026-05-26-426165368d",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "43a1616375b7f57172792f26267f722ba4939bac": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=89111",
@@ -271,6 +276,11 @@
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=89169",
       "slug": null,
+      "url": "https://fidoalliance.org/feed/"
+    },
+    "667e01d2f110d697bb628e921bfc0b2229509826": {
+      "guid": "https://fidoalliance.org/?p=89650",
+      "slug": "2026-05-26-667e01d2f1",
       "url": "https://fidoalliance.org/feed/"
     },
     "66f1eb707e899af9f28532db72d44a69c7feef2b": {
@@ -724,6 +734,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-05-25T19:45:22Z",
+  "updated_at": "2026-05-26T20:12:48Z",
   "version": 1
 }
