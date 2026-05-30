@@ -457,6 +457,11 @@
       "slug": "2026-05-05-8ff17e4777",
       "url": "https://developer.chrome.com/blog/feed.xml"
     },
+    "9153fef6d4145fa75640a8c555cb7c20afa479a0": {
+      "guid": "https://fidoalliance.org/?p=89764",
+      "slug": "2026-05-30-9153fef6d4",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "93d1395e9cff9ac55319aeababd514599e81fd0a": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=88777",
@@ -737,6 +742,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "fce09967cd0611854e0203bd0cf75328992b3240": {
+      "guid": "https://fidoalliance.org/?p=89769",
+      "slug": "2026-05-30-fce09967cd",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "fe2f60271293d8e134b3917051ad38cbf21130b9": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=87874",
@@ -744,6 +754,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-05-29T20:29:55Z",
+  "updated_at": "2026-05-30T19:21:15Z",
   "version": 1
 }
