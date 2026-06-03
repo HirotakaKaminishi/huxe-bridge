@@ -112,6 +112,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "26bc0704b4c52d7af5e75709d98ac011f26c75ec": {
+      "guid": "https://developer.chrome.com/blog/new-in-chrome-149?hl=en",
+      "slug": "2026-06-02-26bc0704b4",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "2776e63dde9b0dec7c50c67ffba4bbb5055fd916": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=88906",
@@ -457,6 +462,11 @@
       "slug": "2026-05-05-8ff17e4777",
       "url": "https://developer.chrome.com/blog/feed.xml"
     },
+    "8ff34a8e0012e096755baf92e59c6b67bdbe9b2f": {
+      "guid": "https://developer.chrome.com/blog/new-in-devtools-149?hl=en",
+      "slug": "2026-06-02-8ff34a8e00",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "9153fef6d4145fa75640a8c555cb7c20afa479a0": {
       "guid": "https://fidoalliance.org/?p=89764",
       "slug": "2026-05-30-9153fef6d4",
@@ -754,6 +764,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-06-02T20:53:21Z",
+  "updated_at": "2026-06-03T21:18:49Z",
   "version": 1
 }
