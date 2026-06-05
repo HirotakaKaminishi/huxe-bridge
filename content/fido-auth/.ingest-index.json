@@ -195,6 +195,11 @@
       "slug": "2026-05-26-426165368d",
       "url": "https://developer.chrome.com/blog/feed.xml"
     },
+    "438ffdc5c95a613180339d2100d6768cd53a5721": {
+      "guid": "https://developer.chrome.com/blog/chrome-150-beta?hl=en",
+      "slug": "2026-06-03-438ffdc5c9",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "43a1616375b7f57172792f26267f722ba4939bac": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=89111",
@@ -314,6 +319,11 @@
       "guid": "https://fidoalliance.org/?p=89273",
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
+    },
+    "6cb3b6e6ebdb20646286ce304c0a9e50b1acba61": {
+      "guid": "https://developer.chrome.com/blog/seamless-pwa-origin-migration?hl=en",
+      "slug": "2026-06-03-6cb3b6e6eb",
+      "url": "https://developer.chrome.com/blog/feed.xml"
     },
     "6d748b60d60d01b2307854e95e66a0edf7ca31f1": {
       "bootstrap_skipped": true,
@@ -507,6 +517,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "a053fe68a817e8bb07d1259bbd30f3fd6848ef7e": {
+      "guid": "https://fidoalliance.org/?p=89793",
+      "slug": "2026-06-06-a053fe68a8",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "a1197d74e92449cf9d177873580ce87966b8ef78": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=87795",
@@ -570,6 +585,11 @@
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=88662",
       "slug": null,
+      "url": "https://fidoalliance.org/feed/"
+    },
+    "b98d6e71674a2728719af5ea2de4feff7a84d952": {
+      "guid": "https://fidoalliance.org/?p=89795",
+      "slug": "2026-06-06-b98d6e7167",
       "url": "https://fidoalliance.org/feed/"
     },
     "be46a8a1352c3e2394c0492b3d3488572b6cd035": {
@@ -764,6 +784,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-06-04T20:09:23Z",
+  "updated_at": "2026-06-05T19:59:07Z",
   "version": 1
 }

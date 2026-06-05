@@ -1218,6 +1218,11 @@
       "slug": "2026-06-03-900fac9dfa",
       "url": "https://lisani.jp/feed/"
     },
+    "90b8ff894f49dcbf112bb74b037541362bed05d0": {
+      "guid": "https://animeanime.jp/article/2026/06/05/99803.html",
+      "slug": "2026-06-05-90b8ff894f",
+      "url": "https://animeanime.jp/rss/index.rdf"
+    },
     "91bbf51722da3de403e65699c7cbe20bf638c5aa": {
       "guid": "346323",
       "slug": "2026-05-24-91bbf51722",
@@ -2023,9 +2028,19 @@
       "slug": null,
       "url": "https://animeanime.jp/rss/index.rdf"
     },
+    "f18405509ea9ff852719340fbf1bbe1e235a4715": {
+      "guid": "https://animeanime.jp/article/2026/06/05/99804.html",
+      "slug": "2026-06-05-f18405509e",
+      "url": "https://animeanime.jp/rss/index.rdf"
+    },
     "f1e326268b8a45c08345ef96bad8c5cdc96c5afa": {
       "guid": "https://animeanime.jp/article/2026/05/22/99178.html",
       "slug": "2026-05-22-f1e326268b",
+      "url": "https://animeanime.jp/rss/index.rdf"
+    },
+    "f29a6d96bbbbeb1098906447b771ab12c6d907eb": {
+      "guid": "https://animeanime.jp/article/2026/06/05/99805.html",
+      "slug": "2026-06-05-f29a6d96bb",
       "url": "https://animeanime.jp/rss/index.rdf"
     },
     "f2f9913b143d301e2d90020240c8c61990551fc7": {
@@ -2089,6 +2104,11 @@
       "slug": "2026-05-18-f6f5a58839",
       "url": "https://animeanime.jp/rss/index.rdf"
     },
+    "f7001c2912470eb59b1d538ac006a54118dd85e0": {
+      "guid": "https://animeanime.jp/article/2026/06/05/99802.html",
+      "slug": "2026-06-05-f7001c2912",
+      "url": "https://animeanime.jp/rss/index.rdf"
+    },
     "f769afc266d7fb760268a0840cfd7d7e082d9183": {
       "guid": "https://www.lisani.jp/?p=308928",
       "slug": "2026-05-16-f769afc266",
@@ -2145,6 +2165,11 @@
       "slug": "2026-05-14-fa1e5b5f6d",
       "url": "https://lisani.jp/feed/"
     },
+    "fa21796e1fa5fc919420db42c6a0092c17f99964": {
+      "guid": "https://animeanime.jp/article/2026/06/05/99806.html",
+      "slug": "2026-06-05-fa21796e1f",
+      "url": "https://animeanime.jp/rss/index.rdf"
+    },
     "fa8073cd59a3c4ed14979615419532516a2785d0": {
       "guid": "https://www.lisani.jp/?p=309041",
       "slug": "2026-05-18-fa8073cd59",
@@ -2177,6 +2202,6 @@
       "url": "https://animeanime.jp/rss/index.rdf"
     }
   },
-  "updated_at": "2026-06-04T20:09:22Z",
+  "updated_at": "2026-06-05T19:59:07Z",
   "version": 1
 }
