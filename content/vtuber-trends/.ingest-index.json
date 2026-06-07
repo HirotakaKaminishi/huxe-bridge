@@ -6,6 +6,11 @@
       "slug": null,
       "url": "https://vspo.jp/news/feed"
     },
+    "09b94c15ea65d735a5842f87f1aa2feb244a1d05": {
+      "guid": "https://panora.tokyo/?p=144819",
+      "slug": "2026-06-05-09b94c15ea",
+      "url": "https://panora.tokyo/feed/"
+    },
     "09d0c933a44970ca849ed4ea235fceb29b0266e7": {
       "guid": "http://hololivepro.com/?guid=d6b0522ca9c5f97fe295ffca542adad7",
       "slug": "2026-05-08-09d0c933a4",
@@ -1172,6 +1177,11 @@
       "slug": "2026-06-04-b752c88f77",
       "url": "https://panora.tokyo/feed/"
     },
+    "b76591f6b19ba410a9a6b8d62c76276e07c2ffdc": {
+      "guid": "https://panora.tokyo/?p=144934",
+      "slug": "2026-06-07-b76591f6b1",
+      "url": "https://panora.tokyo/feed/"
+    },
     "b76cfb252171eac9261f2eb326a195d02e0daa4f": {
       "guid": "https://panora.tokyo/?p=144254",
       "slug": "2026-06-01-b76cfb2521",
@@ -1688,6 +1698,6 @@
       "url": "https://panora.tokyo/feed/"
     }
   },
-  "updated_at": "2026-06-06T19:27:41Z",
+  "updated_at": "2026-06-07T19:27:36Z",
   "version": 1
 }
