@@ -291,6 +291,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "60d820d426bc3215dcaa3eeca6ac80e68493410d": {
+      "guid": "https://developer.chrome.com/blog/devtools-for-agents-3p-tools?hl=en",
+      "slug": "2026-06-18-60d820d426",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "63053fda52087eaf3ff5a704546b11fe5a10a70d": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=87878",
@@ -596,6 +601,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "b7686ceff9647ce620cd736dc51d366f89dfa9a5": {
+      "guid": "https://developer.chrome.com/blog/new-in-webgpu-149-150?hl=en",
+      "slug": "2026-06-17-b7686ceff9",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "b792e46afef006e8bfd7856eba7dd7c9a6866755": {
       "guid": "https://fidoalliance.org/?p=89625",
       "slug": "2026-05-20-b792e46afe",
@@ -632,6 +642,11 @@
       "guid": "https://fidoalliance.org/?p=89112",
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
+    },
+    "c002157b59c2fced7009d9b15b6bfd5807d433d3": {
+      "guid": "https://developer.chrome.com/blog/agent-ready-toolkit?hl=en",
+      "slug": "2026-06-22-c002157b59",
+      "url": "https://developer.chrome.com/blog/feed.xml"
     },
     "c070a61345fbc1db303916cc6727749a97daca9f": {
       "bootstrap_skipped": true,
@@ -844,6 +859,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-06-23T20:09:37Z",
+  "updated_at": "2026-06-24T19:50:12Z",
   "version": 1
 }
