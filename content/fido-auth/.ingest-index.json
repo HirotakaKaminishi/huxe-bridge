@@ -166,6 +166,11 @@
       "slug": "2026-05-19-383ea46b47",
       "url": "https://developer.chrome.com/blog/feed.xml"
     },
+    "3927d3ec200cce60dad908ff73a78443a1300784": {
+      "guid": "https://fidoalliance.org/?p=89923",
+      "slug": "2026-06-26-3927d3ec20",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "3a65a498476fd1ebac05f499e171156421f06f6c": {
       "guid": "https://developer.chrome.com/blog/install-element-ot?hl=en",
       "slug": "2026-05-12-3a65a49847",
@@ -666,6 +671,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "c6b513c272c0ef36a31c0005c1cbfa12fb831779": {
+      "guid": "https://fidoalliance.org/?p=89919",
+      "slug": "2026-06-26-c6b513c272",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "c902550c0035ac405d37e9e58f28307d330c25cc": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=89248",
@@ -859,6 +869,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-06-25T20:04:29Z",
+  "updated_at": "2026-06-26T19:52:56Z",
   "version": 1
 }
