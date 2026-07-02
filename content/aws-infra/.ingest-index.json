@@ -982,6 +982,11 @@
       "slug": "2026-05-22-882143e37a",
       "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
     },
+    "889bb6e4c8c962a8781832306a717ebd5585dc18": {
+      "guid": "513e93fd74ac0006f37bdc7901a1885ee74317b6",
+      "slug": "2026-07-02-889bb6e4c8",
+      "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
+    },
     "8aaee4de7e7731f1f343974dc75829c839256cd3": {
       "bootstrap_skipped": true,
       "guid": "81f7accb01275ecfbc35fd4bd936fa19ec5d59b5",
@@ -1115,6 +1120,11 @@
     "9ae141928a54a2ed831d9d693b6e91feb03b5fb4": {
       "guid": "b0726f6bb9f5ec306c2e3f50f9aa2a1a787447cc",
       "slug": "2026-06-16-9ae141928a",
+      "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
+    },
+    "9c2031d71c31c54346a604a096e5998499f8f77d": {
+      "guid": "26c12eb566f07645eb4cc2a92856b8f53a375211",
+      "slug": "2026-07-03-9c2031d71c",
       "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
     },
     "9cc59c564d0da0510634b03ad4a1df68abcadce3": {
@@ -1306,6 +1316,11 @@
     "b1852500b438de4ae68baddf45c74fbea6042194": {
       "guid": "5c73e36a08f8fad5bf403831212c0167479548ba",
       "slug": "2026-06-09-b1852500b4",
+      "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
+    },
+    "b402daf58107d96f6c7cb4829ca88a455560c351": {
+      "guid": "401710a6f2bbe01531e5f01e8bd5289c66a9afc0",
+      "slug": "2026-07-03-b402daf581",
       "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
     },
     "b41b081c477b0da59a4c912ec014c5c3a20b91c3": {
@@ -1525,6 +1540,11 @@
       "bootstrap_skipped": true,
       "guid": "7e378c72fd3ed4016b20ca683ea5b773a6dacdb5",
       "slug": null,
+      "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
+    },
+    "cef87c91aeff0ca0a02fe0cd43d18f99bcbafd05": {
+      "guid": "42e163bd32d462553f9a56c4b248b7bafe577526",
+      "slug": "2026-07-02-cef87c91ae",
       "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
     },
     "cf15e3b1fb4cfc0c4080fd192d6da67cffc4894a": {
@@ -1751,6 +1771,11 @@
       "slug": "2026-06-18-e75e77f01e",
       "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
     },
+    "e7fcaf976729ad1fb08428938e08ae2aa3a776d6": {
+      "guid": "4c9a60129323d7e086cd369e0b4b050e4995e065",
+      "slug": "2026-07-02-e7fcaf9767",
+      "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
+    },
     "e8d47a8f3e36c4868d8a311882576eb60f11cc32": {
       "guid": "1d0943ef1b879b272950177aa8f4811b13b02910",
       "slug": "2026-06-19-e8d47a8f3e",
@@ -1893,6 +1918,6 @@
       "url": "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
     }
   },
-  "updated_at": "2026-07-01T20:00:14Z",
+  "updated_at": "2026-07-02T19:28:35Z",
   "version": 1
 }
