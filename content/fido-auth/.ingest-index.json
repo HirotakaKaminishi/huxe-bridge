@@ -626,6 +626,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "b34e068ecaaa1943f02eb34a247106c2ec37efed": {
+      "guid": "https://fidoalliance.org/?p=90105",
+      "slug": "2026-07-08-b34e068eca",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "b7686ceff9647ce620cd736dc51d366f89dfa9a5": {
       "guid": "https://developer.chrome.com/blog/new-in-webgpu-149-150?hl=en",
       "slug": "2026-06-17-b7686ceff9",
@@ -889,6 +894,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-07-06T20:01:37Z",
+  "updated_at": "2026-07-07T19:59:04Z",
   "version": 1
 }
