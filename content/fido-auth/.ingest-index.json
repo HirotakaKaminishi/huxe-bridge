@@ -249,10 +249,20 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "504b7d2793d883464cfa5ad17f1305e25406ced0": {
+      "guid": "https://fidoalliance.org/?p=90293",
+      "slug": "2026-07-17-504b7d2793",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "507e6b566deae0ef4f22665fbd352defe39d9957": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=87732",
       "slug": null,
+      "url": "https://fidoalliance.org/feed/"
+    },
+    "5089dbc85aed7a2de591ded969f4eb3292d9882b": {
+      "guid": "https://fidoalliance.org/?p=90288",
+      "slug": "2026-07-17-5089dbc85a",
       "url": "https://fidoalliance.org/feed/"
     },
     "53b806eea6a84dfd62209c0d02792b6836b12d6e": {
@@ -445,6 +455,11 @@
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=88381",
       "slug": null,
+      "url": "https://fidoalliance.org/feed/"
+    },
+    "80c46f3bd198628d48dcf51d5ebc5d22188b0c57": {
+      "guid": "https://fidoalliance.org/?p=90291",
+      "slug": "2026-07-17-80c46f3bd1",
       "url": "https://fidoalliance.org/feed/"
     },
     "80d3c9287c70d42dd1eb80f4de71b474c4d589fd": {
@@ -904,6 +919,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-07-16T19:15:35Z",
+  "updated_at": "2026-07-17T19:14:33Z",
   "version": 1
 }
