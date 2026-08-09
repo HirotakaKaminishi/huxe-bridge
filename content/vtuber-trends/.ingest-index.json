@@ -181,6 +181,11 @@
       "slug": "2026-05-18-0f35783fe4",
       "url": "https://www.moguravr.com/feed/"
     },
+    "0f3664ede4cd6e22483d70655fead3ac45fd239b": {
+      "guid": "https://panora.tokyo/?p=152084",
+      "slug": "2026-08-08-0f3664ede4",
+      "url": "https://panora.tokyo/feed/"
+    },
     "0fab28e257f2e0c3c13e89d77e250918acc1877f": {
       "guid": "https://www.moguravr.com/?p=313670",
       "slug": "2026-05-25-0fab28e257",
@@ -712,6 +717,11 @@
       "slug": "2026-07-06-2c1474cb56",
       "url": "https://www.moguravr.com/feed/"
     },
+    "2c1d52df26052cc311abf354c0d93993578f1f48": {
+      "guid": "https://www.moguravr.com/?p=334161",
+      "slug": "2026-08-09-2c1d52df26",
+      "url": "https://www.moguravr.com/feed/"
+    },
     "2c525cba682e5ac0498ad92c7ae3ea0d66849969": {
       "guid": "https://panora.tokyo/?p=145167",
       "slug": "2026-06-13-2c525cba68",
@@ -1134,6 +1144,11 @@
       "slug": "2026-05-28-484deb6804",
       "url": "https://www.moguravr.com/feed/"
     },
+    "48a22b03117a8c96189af3614c4a74e33c6917de": {
+      "guid": "https://www.moguravr.com/?p=334107",
+      "slug": "2026-08-09-48a22b0311",
+      "url": "https://www.moguravr.com/feed/"
+    },
     "48bad6ae0503e024e8e92a60a935e9507ca1cb4a": {
       "guid": "https://panora.tokyo/?p=144359",
       "slug": "2026-06-02-48bad6ae05",
@@ -1259,6 +1274,11 @@
       "slug": "2026-07-07-4ef089c674",
       "url": "https://www.moguravr.com/feed/"
     },
+    "4ef9b1c05f89cc5a76ef3132e3ce3e83ff1aabdc": {
+      "guid": "https://panora.tokyo/?p=152207",
+      "slug": "2026-08-09-4ef9b1c05f",
+      "url": "https://panora.tokyo/feed/"
+    },
     "4fb0ea981228700c1c35e7423c5de4bbe0a5eae8": {
       "guid": "https://www.moguravr.com/?p=313879",
       "slug": "2026-05-27-4fb0ea9812",
@@ -1273,6 +1293,11 @@
       "bootstrap_skipped": true,
       "guid": "https://panora.tokyo/?p=141636",
       "slug": null,
+      "url": "https://panora.tokyo/feed/"
+    },
+    "514597e7065450cf89be56fd5a1b2b6844ffd00b": {
+      "guid": "https://panora.tokyo/?p=152040",
+      "slug": "2026-08-09-514597e706",
       "url": "https://panora.tokyo/feed/"
     },
     "5189c2a6728f255ac1209ad46c5cdc83c352d66d": {
@@ -3684,6 +3709,11 @@
       "slug": null,
       "url": "https://vspo.jp/news/feed"
     },
+    "d686502c76f822aac5094dbaffadbecc9f96e234": {
+      "guid": "https://www.moguravr.com/?p=334078",
+      "slug": "2026-08-09-d686502c76",
+      "url": "https://www.moguravr.com/feed/"
+    },
     "d6e16241c33e94cd481679ec1b82b76fbaa8179f": {
       "bootstrap_skipped": true,
       "guid": "https://vspo.jp/?p=886",
@@ -4473,6 +4503,6 @@
       "url": "https://panora.tokyo/feed/"
     }
   },
-  "updated_at": "2026-08-08T18:40:21Z",
+  "updated_at": "2026-08-09T18:44:12Z",
   "version": 1
 }
