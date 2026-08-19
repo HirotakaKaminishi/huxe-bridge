@@ -1,5 +1,10 @@
 {
   "items": {
+    "01c915c374f0782cc13abe5927796b6899da66a4": {
+      "guid": "https://fidoalliance.org/?p=90701",
+      "slug": "2026-08-19-01c915c374",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "02203922e4691218e685ddbbe52b25c5577f329d": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=88302",
@@ -949,6 +954,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-08-18T18:40:27Z",
+  "updated_at": "2026-08-19T18:38:15Z",
   "version": 1
 }
