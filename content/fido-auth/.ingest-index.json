@@ -259,6 +259,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "4fd62476e8cac024c86c5c427817aacb14c69a59": {
+      "guid": "https://fidoalliance.org/?p=90783",
+      "slug": "2026-08-23-4fd62476e8",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "504b7d2793d883464cfa5ad17f1305e25406ced0": {
       "guid": "https://fidoalliance.org/?p=90293",
       "slug": "2026-07-17-504b7d2793",
@@ -670,6 +675,11 @@
       "slug": null,
       "url": "https://developer.chrome.com/blog/feed.xml"
     },
+    "b0a9be91e8876156b4444f95007ca63811de9d35": {
+      "guid": "https://fidoalliance.org/?p=90780",
+      "slug": "2026-08-23-b0a9be91e8",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "b14d6c439bcd480dbb53024721f4f55d78f744b1": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=87817",
@@ -679,6 +689,11 @@
     "b34e068ecaaa1943f02eb34a247106c2ec37efed": {
       "guid": "https://fidoalliance.org/?p=90105",
       "slug": "2026-07-08-b34e068eca",
+      "url": "https://fidoalliance.org/feed/"
+    },
+    "b66c15e97ff6f847c379e459885bc0be0c3f2684": {
+      "guid": "https://fidoalliance.org/?p=90807",
+      "slug": "2026-08-23-b66c15e97f",
       "url": "https://fidoalliance.org/feed/"
     },
     "b7686ceff9647ce620cd736dc51d366f89dfa9a5": {
@@ -954,6 +969,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-08-22T18:33:28Z",
+  "updated_at": "2026-08-23T18:32:36Z",
   "version": 1
 }
