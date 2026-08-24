@@ -538,6 +538,11 @@
       "slug": "2026-05-19-1f2be9822a",
       "url": "https://www.moguravr.com/feed/"
     },
+    "1f9d4523fd03e6823723de484d1f02e590b8f448": {
+      "guid": "https://www.moguravr.com/?p=346966",
+      "slug": "2026-08-24-1f9d4523fd",
+      "url": "https://www.moguravr.com/feed/"
+    },
     "1f9d967b27202ba2d949f3c7763ac20fc9829448": {
       "guid": "https://www.moguravr.com/?p=312750",
       "slug": "2026-05-15-1f9d967b27",
@@ -1054,6 +1059,11 @@
       "guid": "https://panora.tokyo/?p=146638",
       "slug": "2026-06-23-37c848fd45",
       "url": "https://panora.tokyo/feed/"
+    },
+    "3850524182096f7b5c579a0c766511caa91e404b": {
+      "guid": "https://www.moguravr.com/?p=346880",
+      "slug": "2026-08-24-3850524182",
+      "url": "https://www.moguravr.com/feed/"
     },
     "38febe04693181a52177034adec22202d1b0aa3a": {
       "guid": "https://www.moguravr.com/?p=318386",
@@ -2266,6 +2276,11 @@
       "slug": "2026-08-13-770829f93f",
       "url": "https://www.moguravr.com/feed/"
     },
+    "77387207c8664aeaed60337c7840f4eee66f3982": {
+      "guid": "https://panora.tokyo/?p=153963",
+      "slug": "2026-08-24-77387207c8",
+      "url": "https://panora.tokyo/feed/"
+    },
     "773f9f52bc1637c7d45cbd6a68837b6a23c261bd": {
       "guid": "https://panora.tokyo/?p=145688",
       "slug": "2026-06-14-773f9f52bc",
@@ -2533,6 +2548,11 @@
       "slug": "2026-06-26-86d6fa7d4f",
       "url": "https://www.moguravr.com/feed/"
     },
+    "86eafd234a6d9a4eaf6f33497f37f4120539d844": {
+      "guid": "https://panora.tokyo/?p=153959",
+      "slug": "2026-08-24-86eafd234a",
+      "url": "https://panora.tokyo/feed/"
+    },
     "870e0508d247b9a4c691bca676d6469a34cac6df": {
       "guid": "https://www.moguravr.com/?p=329928",
       "slug": "2026-08-05-870e0508d2",
@@ -2632,6 +2652,11 @@
     "8acab59a14137823c65b37c2d9ff3de32eb80bbc": {
       "guid": "https://www.moguravr.com/?p=317356",
       "slug": "2026-07-02-8acab59a14",
+      "url": "https://www.moguravr.com/feed/"
+    },
+    "8b108752112e901bc329015673867170dd979d2c": {
+      "guid": "https://www.moguravr.com/?p=346868",
+      "slug": "2026-08-24-8b10875211",
       "url": "https://www.moguravr.com/feed/"
     },
     "8b8e67e2f5f6a47a39dc486275917ce2de6894cc": {
@@ -3432,6 +3457,11 @@
       "slug": "2026-07-04-b820f0fe4a",
       "url": "https://panora.tokyo/feed/"
     },
+    "b84c4197e580e090e77187ef735d5e38b8399374": {
+      "guid": "https://www.moguravr.com/?p=346819",
+      "slug": "2026-08-24-b84c4197e5",
+      "url": "https://www.moguravr.com/feed/"
+    },
     "b874baf69af7f86d71934c64973e56202786799c": {
       "guid": "https://www.moguravr.com/?p=316757",
       "slug": "2026-06-25-b874baf69a",
@@ -3700,6 +3730,11 @@
       "guid": "https://panora.tokyo/?p=142419",
       "slug": "2026-05-16-c4f7a032dd",
       "url": "https://panora.tokyo/feed/"
+    },
+    "c4fd944bed7db46354484a6bcb44e013919ebd32": {
+      "guid": "http://hololivepro.com/?guid=67a1c0aa018b85787444f996c3fc1a4d",
+      "slug": "2026-08-23-c4fd944bed",
+      "url": "https://hololivepro.com/news/feed/"
     },
     "c51e321341d7abac506c1c4fcce7ab9577191f82": {
       "bootstrap_skipped": true,
@@ -4279,6 +4314,11 @@
     "dcff6720965a683210cff2c4010f9ef51ab9cb0e": {
       "guid": "https://www.moguravr.com/?p=315428",
       "slug": "2026-06-12-dcff672096",
+      "url": "https://www.moguravr.com/feed/"
+    },
+    "dd575bbd66486745ad0bbee0bc739fca280774ba": {
+      "guid": "https://www.moguravr.com/?p=346886",
+      "slug": "2026-08-24-dd575bbd66",
       "url": "https://www.moguravr.com/feed/"
     },
     "dde4cb754d7734dbcc71c16798de5c0fceb550d0": {
@@ -5103,6 +5143,6 @@
       "url": "https://panora.tokyo/feed/"
     }
   },
-  "updated_at": "2026-08-23T18:32:39Z",
+  "updated_at": "2026-08-24T18:42:42Z",
   "version": 1
 }
