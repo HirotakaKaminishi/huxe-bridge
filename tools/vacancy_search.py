@@ -79,6 +79,18 @@ RATE_LIMIT_SEC = 1.2  # 楽天ウェブサービスの連続アクセス制限�
 _last_call = 0.0
 
 
+class ApiError(Exception):
+    """楽天APIが 404 以外のエラーを返した。原因究明のため本文を保持する。"""
+
+
+def redact(text):
+    """ログに出す前に認証情報を伏せる (ローカル実行時の保険)。"""
+    for secret in (APP_ID, ACCESS_KEY, AFFILIATE_ID):
+        if secret:
+            text = text.replace(secret, "***")
+    return text
+
+
 def env(name, required=True):
     value = os.environ.get(name)
     if required and not value:
@@ -155,7 +167,10 @@ def search(lat, lng, radius, page=1):
     except urllib.error.HTTPError as e:
         if e.code == 404:       # 条件に合う空室なし
             return None
-        raise
+        body = e.read().decode("utf-8", "replace").strip()
+        raise ApiError(f"HTTP {e.code} {e.reason}: {redact(body)[:400] or '(本文なし)'}") from None
+    except urllib.error.URLError as e:
+        raise ApiError(f"接続失敗: {e.reason}") from None
     finally:
         _last_call = time.monotonic()
 
@@ -207,11 +222,8 @@ def main():
         print(f"\n=== {name} ===")
         try:
             hotels = search_all(lat, lng, radius)
-        except urllib.error.HTTPError as e:
-            print(f"  照会失敗: HTTP {e.code} {e.reason}")
-            continue
-        except urllib.error.URLError as e:
-            print(f"  照会失敗: {e.reason}")
+        except ApiError as e:
+            print(f"  照会失敗: {e}")
             continue
 
         if not hotels:
