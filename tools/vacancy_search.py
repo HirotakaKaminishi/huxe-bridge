@@ -13,7 +13,9 @@
     CHECKIN / CHECKOUT    YYYY-MM-DD
     ADULTS / ROOMS        大人の人数 / 部屋数
     AREAS                 カンマ区切りのエリア名
-    DETAIL                1 なら宿ごとに全プランを出す (既定は最安1件)
+    DETAIL                1 なら宿ごとに全プランを出す (既定は食事条件別の最安)
+    SORT                  value=安い順 / luxury=高い順
+    MAX_HOTELS            エリアごとの表示上限
     RAKUTEN_REFERER       アプリ登録時の Application URL。未指定だと 403
 
 ローカル実行:
@@ -81,6 +83,8 @@ CHECKIN = setting("CHECKIN", "checkin", "2026-09-19")
 CHECKOUT = setting("CHECKOUT", "checkout", "2026-09-20")
 ADULTS = setting("ADULTS", "adults", "3")
 ROOMS = setting("ROOMS", "rooms", "1")
+SORT = setting("SORT", "sort", "luxury")            # value=安い順 / luxury=高い順
+MAX_HOTELS = int(setting("MAX_HOTELS", "max_hotels", "12"))
 
 RATE_LIMIT_SEC = 1.2  # 楽天ウェブサービスの連続アクセス制限対策
 _last_call = 0.0
@@ -268,11 +272,25 @@ def group_by_hotel(hotels):
     return grouped
 
 
+MEAL_ORDER = ("夕朝", "夕", "朝", "なし")
+
+
+def meal_label(room):
+    return (("夕" if room.get("withDinnerFlag") else "")
+            + ("朝" if room.get("withBreakfastFlag") else "")) or "なし"
+
+
+def cheapest_by_meal(found):
+    """食事条件ごとの最安プランを返す。found は価格昇順であること。"""
+    best = {}
+    for total, room in found:
+        best.setdefault(meal_label(room), (total, room))
+    return [(label, best[label]) for label in MEAL_ORDER if label in best]
+
+
 def describe(total, room):
-    meal = ("夕" if room.get("withDinnerFlag") else "") + \
-           ("朝" if room.get("withBreakfastFlag") else "")
     plan = (room.get("planName") or "(プラン名なし)")[:38]
-    return (f"{total:,}円 / {room.get('roomName') or '-'} / {plan} / 食事:{meal or 'なし'}")
+    return f"{total:,}円 / {room.get('roomName') or '-'} / {plan}"
 
 
 def main():
@@ -293,13 +311,19 @@ def main():
             print("  空室なし")
             continue
 
-        # 予算制限なしの想定なので高い宿から並べる
-        ranked = sorted(grouped.values(),
-                        key=lambda e: e["plans"][-1][0] if e["plans"] else 0,
-                        reverse=True)
-        print(f"  空室のある宿: {len(ranked)}軒")
+        if SORT == "value":      # 安い順 (コスパ比較向け)
+            ranked = sorted(grouped.values(),
+                            key=lambda e: e["plans"][0][0] if e["plans"] else 10 ** 9)
+        else:                    # 高い順 (予算制限なし向け)
+            ranked = sorted(grouped.values(),
+                            key=lambda e: e["plans"][-1][0] if e["plans"] else 0,
+                            reverse=True)
+        shown = ranked[:MAX_HOTELS]
+        more = len(ranked) - len(shown)
+        print(f"  空室のある宿: {len(ranked)}軒"
+              + (f" (上位{len(shown)}軒を表示、他{more}軒)" if more > 0 else ""))
 
-        for entry in ranked:
+        for entry in shown:
             basic, found = entry["basic"], entry["plans"]
             print(f"\n  {basic.get('hotelName')}  ★{basic.get('reviewAverage') or '-'}"
                   f"  TEL {basic.get('telephoneNo') or '-'}")
@@ -309,8 +333,13 @@ def main():
             low, high = found[0][0], found[-1][0]
             span = f"{low:,}円" if low == high else f"{low:,}〜{high:,}円"
             print(f"    プラン{len(found)}件 / {span} ({ADULTS}名合計)")
-            for total, room in (found if detail else found[:1]):
-                print(f"    - {describe(total, room)}")
+            if detail:
+                for total, room in found:
+                    print(f"    [{meal_label(room)}] {describe(total, room)}")
+            else:
+                # 食事条件を揃えないと宿ごとの比較にならないので条件別の最安を出す
+                for label, (total, room) in cheapest_by_meal(found):
+                    print(f"    [{label}] {describe(total, room)}")
             if basic.get("planListUrl"):
                 print(f"    {basic['planListUrl']}")
 

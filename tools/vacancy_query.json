@@ -7,7 +7,11 @@
   "rooms": 1,
   "areas": [
     "有馬温泉",
-    "神戸三宮"
+    "神戸三宮",
+    "京都駅周辺",
+    "賢島（志摩）"
   ],
-  "custom_areas": {}
+  "custom_areas": {},
+  "sort": "value",
+  "max_hotels": 10
 }
