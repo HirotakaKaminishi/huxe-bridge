@@ -1,0 +1,67 @@
+name: vacancy-check
+
+# 楽天トラベル空室検索APIを叩いて、結果を実行サマリに出す。
+# 手動起動専用 (宿泊在庫は都度確認するものなのでスケジュール実行はしない)。
+on:
+  workflow_dispatch:
+    inputs:
+      checkin:
+        description: 'チェックイン日 YYYY-MM-DD'
+        required: false
+        default: '2026-09-19'
+      checkout:
+        description: 'チェックアウト日 YYYY-MM-DD'
+        required: false
+        default: '2026-09-20'
+      adults:
+        description: '大人の人数'
+        required: false
+        default: '3'
+      rooms:
+        description: '部屋数'
+        required: false
+        default: '1'
+      areas:
+        description: 'カンマ区切りのエリア名 (空なら全エリア)。有馬温泉 / 神戸三宮 / 京都駅周辺 / 伊勢市駅周辺 / 賢島（志摩）'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vacancy-check
+  cancel-in-progress: true
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Search vacancies
+        env:
+          RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
+          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+          RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
+          CHECKIN: ${{ inputs.checkin }}
+          CHECKOUT: ${{ inputs.checkout }}
+          ADULTS: ${{ inputs.adults }}
+          ROOMS: ${{ inputs.rooms }}
+          AREAS: ${{ inputs.areas }}
+        run: |
+          if [ -z "$RAKUTEN_APP_ID" ] || [ -z "$RAKUTEN_ACCESS_KEY" ]; then
+            echo "::error::リポジトリ Secrets に RAKUTEN_APP_ID と RAKUTEN_ACCESS_KEY を登録してください"
+            exit 1
+          fi
+          {
+            echo '```'
+            python tools/vacancy_search.py
+            echo '```'
+          } | tee -a "$GITHUB_STEP_SUMMARY"
