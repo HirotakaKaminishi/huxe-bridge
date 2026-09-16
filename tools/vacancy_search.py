@@ -3,13 +3,16 @@
 
 標準ライブラリのみで動作する (huxe-bridge 本体の依存とは独立)。
 
-環境変数:
+検索条件は tools/vacancy_query.json で指定する。同じディレクトリのこのファイルを
+書き換えて push すると Actions が走り、結果が実行サマリに出る。
+
+環境変数 (query ファイルより優先):
     RAKUTEN_APP_ID        必須。楽天ウェブサービスのアプリID
     RAKUTEN_ACCESS_KEY    必須。同アクセスキー (accessKey ヘッダに載せる)
     RAKUTEN_AFFILIATE_ID  任意。アフィリエイトID
-    CHECKIN / CHECKOUT    YYYY-MM-DD。既定は 2026-09-19 → 2026-09-20
-    ADULTS / ROOMS        大人の人数 / 部屋数。既定は 3名 / 1室
-    AREAS                 カンマ区切りのエリア名。省略時は AREA_PRESETS 全件
+    CHECKIN / CHECKOUT    YYYY-MM-DD
+    ADULTS / ROOMS        大人の人数 / 部屋数
+    AREAS                 カンマ区切りのエリア名
 
 ローカル実行:
     export RAKUTEN_APP_ID=xxxx RAKUTEN_ACCESS_KEY=xxxx
@@ -20,6 +23,7 @@ GitHub Actions からは .github/workflows/vacancy-check.yml で実行する。
 """
 import json
 import os
+import pathlib
 import sys
 import time
 import urllib.error
@@ -37,10 +41,39 @@ AREA_PRESETS = {
     "賢島（志摩）": (34.3066, 136.8228, 3.0),
 }
 
-CHECKIN = os.environ.get("CHECKIN", "2026-09-19")
-CHECKOUT = os.environ.get("CHECKOUT", "2026-09-20")
-ADULTS = os.environ.get("ADULTS", "3")
-ROOMS = os.environ.get("ROOMS", "1")
+QUERY_FILE = pathlib.Path(__file__).with_name("vacancy_query.json")
+
+
+def load_query():
+    """検索条件ファイルを読む。無くても環境変数だけで動く。"""
+    try:
+        with open(QUERY_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
+    except (OSError, json.JSONDecodeError) as exc:
+        print(f"警告: {QUERY_FILE.name} を読めません ({exc})", file=sys.stderr)
+        return {}
+
+
+QUERY = load_query()
+
+
+def setting(env_name, key, default):
+    """環境変数 > query ファイル > 既定値 の優先順で解決する。"""
+    value = os.environ.get(env_name)
+    if value:
+        return str(value)
+    value = QUERY.get(key)
+    if value not in (None, ""):
+        return str(value)
+    return default
+
+
+CHECKIN = setting("CHECKIN", "checkin", "2026-09-19")
+CHECKOUT = setting("CHECKOUT", "checkout", "2026-09-20")
+ADULTS = setting("ADULTS", "adults", "3")
+ROOMS = setting("ROOMS", "rooms", "1")
 
 RATE_LIMIT_SEC = 1.2  # 楽天ウェブサービスの連続アクセス制限対策
 _last_call = 0.0
@@ -58,20 +91,34 @@ ACCESS_KEY = env("RAKUTEN_ACCESS_KEY")
 AFFILIATE_ID = env("RAKUTEN_AFFILIATE_ID", required=False)
 
 
+def available_areas():
+    """プリセットに query ファイルの custom_areas を重ねたもの。"""
+    areas = dict(AREA_PRESETS)
+    for name, coords in (QUERY.get("custom_areas") or {}).items():
+        try:
+            lat, lng, radius = coords
+            areas[name] = (float(lat), float(lng), float(radius))
+        except (TypeError, ValueError):
+            print(f"警告: custom_areas『{name}』は [緯度, 経度, 半径km] で指定してください",
+                  file=sys.stderr)
+    return areas
+
+
 def selected_areas():
-    """AREAS 環境変数があればその順で絞り込む。"""
+    """AREAS 環境変数 > query ファイルの areas > 全エリア の順で絞り込む。"""
+    areas = available_areas()
     raw = os.environ.get("AREAS", "").strip()
-    if not raw:
-        return AREA_PRESETS
+    names = [n.strip() for n in raw.split(",")] if raw else (QUERY.get("areas") or [])
+
     picked = {}
-    for name in (part.strip() for part in raw.split(",")):
+    for name in names:
         if not name:
             continue
-        if name in AREA_PRESETS:
-            picked[name] = AREA_PRESETS[name]
+        if name in areas:
+            picked[name] = areas[name]
         else:
             print(f"警告: 未知のエリア『{name}』を無視します", file=sys.stderr)
-    return picked or AREA_PRESETS
+    return picked or areas
 
 
 def search(lat, lng, radius, page=1):

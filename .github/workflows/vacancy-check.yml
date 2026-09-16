@@ -1,28 +1,38 @@
 name: vacancy-check
 
 # 楽天トラベル空室検索APIを叩いて、結果を実行サマリに出す。
-# 手動起動専用 (宿泊在庫は都度確認するものなのでスケジュール実行はしない)。
+# 宿泊在庫は都度確認するものなので定期実行はしない。
+#
+# 起動方法は2通り:
+#   1. tools/vacancy_query.json を書き換えて push する (ブランチ問わず動く)
+#   2. Actions タブから手動実行する (workflow_dispatch はワークフローが
+#      デフォルトブランチに存在して初めて選べるようになる)
 on:
+  push:
+    paths:
+      - 'tools/vacancy_query.json'
+      - 'tools/vacancy_search.py'
+      - '.github/workflows/vacancy-check.yml'
   workflow_dispatch:
     inputs:
       checkin:
-        description: 'チェックイン日 YYYY-MM-DD'
+        description: 'チェックイン日 YYYY-MM-DD (空なら vacancy_query.json の値)'
         required: false
-        default: '2026-09-19'
+        default: ''
       checkout:
-        description: 'チェックアウト日 YYYY-MM-DD'
+        description: 'チェックアウト日 YYYY-MM-DD (空なら vacancy_query.json の値)'
         required: false
-        default: '2026-09-20'
+        default: ''
       adults:
-        description: '大人の人数'
+        description: '大人の人数 (空なら vacancy_query.json の値)'
         required: false
-        default: '3'
+        default: ''
       rooms:
-        description: '部屋数'
+        description: '部屋数 (空なら vacancy_query.json の値)'
         required: false
-        default: '1'
+        default: ''
       areas:
-        description: 'カンマ区切りのエリア名 (空なら全エリア)。有馬温泉 / 神戸三宮 / 京都駅周辺 / 伊勢市駅周辺 / 賢島（志摩）'
+        description: 'カンマ区切りのエリア名 (空なら vacancy_query.json の値)'
         required: false
         default: ''
 
@@ -30,7 +40,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: vacancy-check
+  group: vacancy-check-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -57,8 +67,17 @@ jobs:
           AREAS: ${{ inputs.areas }}
         run: |
           if [ -z "$RAKUTEN_APP_ID" ] || [ -z "$RAKUTEN_ACCESS_KEY" ]; then
-            echo "::error::リポジトリ Secrets に RAKUTEN_APP_ID と RAKUTEN_ACCESS_KEY を登録してください"
-            exit 1
+            msg='Secrets に RAKUTEN_APP_ID と RAKUTEN_ACCESS_KEY を登録してください'
+            # 手動起動は「実行するつもり」なので失敗させる。
+            # push 起因は設定前でも赤くしたくないのでスキップ扱いにする。
+            if [ "${{ github.event_name }}" = 'workflow_dispatch' ]; then
+              echo "::error::$msg"
+              exit 1
+            fi
+            echo "::notice::$msg (未設定のためスキップしました)"
+            echo "> [!NOTE]" >> "$GITHUB_STEP_SUMMARY"
+            echo "> $msg" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
           fi
           {
             echo '```'
