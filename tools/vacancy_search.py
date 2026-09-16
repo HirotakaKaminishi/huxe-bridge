@@ -15,6 +15,8 @@
     AREAS                 カンマ区切りのエリア名
     DETAIL                1 なら宿ごとに全プランを出す (既定は食事条件別の最安)
     SORT                  value=安い順 / luxury=高い順
+    HOTEL_NO              宿番号(カンマ区切り)。指定すると監視モードになる
+    REQUIRE_MEAL          監視モードで要求する食事条件 (夕朝 / 夕 / 朝 / なし)
     MAX_HOTELS            エリアごとの表示上限
     RAKUTEN_REFERER       アプリ登録時の Application URL。未指定だと 403
 
@@ -85,6 +87,8 @@ ADULTS = setting("ADULTS", "adults", "3")
 ROOMS = setting("ROOMS", "rooms", "1")
 SORT = setting("SORT", "sort", "luxury")            # value=安い順 / luxury=高い順
 MAX_HOTELS = int(setting("MAX_HOTELS", "max_hotels", "12"))
+HOTEL_NO = setting("HOTEL_NO", "hotel_no", "")        # 指定すると宿を名指しで監視する
+REQUIRE_MEAL = setting("REQUIRE_MEAL", "require_meal", "")  # 夕朝 / 夕 / 朝 / なし
 
 RATE_LIMIT_SEC = 1.2  # 楽天ウェブサービスの連続アクセス制限対策
 _last_call = 0.0
@@ -164,8 +168,11 @@ def http_get(url, headers):
         conn.close()
 
 
-def search(lat, lng, radius, page=1):
-    """1ページ分を取得する。条件に合う空室が無ければ None。"""
+def search(lat=None, lng=None, radius=None, page=1, hotel_no=None):
+    """1ページ分を取得する。条件に合う空室が無ければ None。
+
+    hotel_no を渡すと緯度経度ではなく宿を名指しで照会する。
+    """
     global _last_call
     wait = RATE_LIMIT_SEC - (time.monotonic() - _last_call)
     if wait > 0:
@@ -180,16 +187,18 @@ def search(lat, lng, radius, page=1):
         "checkoutDate": CHECKOUT,
         "adultNum": ADULTS,
         "roomNum": ROOMS,
-        "latitude": lat,
-        "longitude": lng,
-        "searchRadius": radius,
-        "datumType": "1",
         "searchPattern": "1",   # 宿泊プラン単位
         "responseType": "middle",
         "sort": "-roomCharge",  # 高い順
         "hits": "30",
         "page": page,
     }
+    if hotel_no:
+        params["hotelNo"] = hotel_no
+    else:
+        params.update({"latitude": lat, "longitude": lng,
+                       "searchRadius": radius, "datumType": "1"})
+
     query = urllib.parse.urlencode({k: v for k, v in params.items() if v is not None})
     headers = {"accessKey": ACCESS_KEY}
     if REFERER:
@@ -293,7 +302,44 @@ def describe(total, room):
     return f"{total:,}円 / {room.get('roomName') or '-'} / {plan}"
 
 
+def watch():
+    """宿を名指しで見張る。条件に合うプランが1件でもあれば True。"""
+    print(f"監視: {CHECKIN} → {CHECKOUT} / 大人{ADULTS}名 / {ROOMS}室"
+          f" / 条件: 食事{REQUIRE_MEAL or '指定なし'}")
+    hit = False
+
+    for number in (n.strip() for n in HOTEL_NO.split(",") if n.strip()):
+        try:
+            data = search(hotel_no=number)
+        except ApiError as e:
+            print(f"  [{number}] 照会失敗: {e}")
+            continue
+        if not data:
+            print(f"  [{number}] 空室なし")
+            continue
+
+        for entry in group_by_hotel(data.get("hotels", [])).values():
+            basic, found = entry["basic"], entry["plans"]
+            name = basic.get("hotelName", number)
+            matched = [(t, r) for t, r in found
+                       if not REQUIRE_MEAL or meal_label(r) == REQUIRE_MEAL]
+            if not matched:
+                print(f"  [{number}] {name}: 条件に合うプランなし (空きプラン{len(found)}件)")
+                continue
+            hit = True
+            print(f"  ★ {name} — 条件に合うプラン{len(matched)}件")
+            for total, room in matched[:5]:
+                print(f"      [{meal_label(room)}] {describe(total, room)}")
+            if basic.get("planListUrl"):
+                print(f"      {basic['planListUrl']}")
+    return hit
+
+
 def main():
+    if HOTEL_NO:
+        # 空きが出たら終了コード 10。ワークフロー側がこれを見て通知する
+        raise SystemExit(10 if watch() else 0)
+
     detail = os.environ.get("DETAIL") == "1"
     print(f"検索条件: {CHECKIN} → {CHECKOUT} / 大人{ADULTS}名 / {ROOMS}室"
           f"{' / 全プラン表示' if detail else ''}")
