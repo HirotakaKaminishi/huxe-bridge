@@ -41,5 +41,7 @@
     ]
   },
   "sort": "value",
-  "max_hotels": 10
+  "max_hotels": 10,
+  "hotel_no": "181177",
+  "require_meal": ""
 }
