@@ -72,9 +72,8 @@ def setting(env_name, key, default):
     return default
 
 
-# openapi ゲートウェイは Referer をアプリ登録時の URL と照合する。
-# ブラウザ経由ではないので自分で付けないと
-# REQUEST_CONTEXT_BODY_HTTP_REFERRER_MISSING で 403 になる。
+# openapi ゲートウェイはアプリ登録時の Application URL を Referer / Origin で
+# 照合する。ブラウザ経由ではないので自分で付けないと 403 になる。
 REFERER = setting("RAKUTEN_REFERER", "referer", "")
 
 CHECKIN = setting("CHECKIN", "checkin", "2026-09-19")
@@ -189,7 +188,11 @@ def search(lat, lng, radius, page=1):
     query = urllib.parse.urlencode({k: v for k, v in params.items() if v is not None})
     headers = {"accessKey": ACCESS_KEY}
     if REFERER:
+        # Referer 単独では 403 REQUEST_CONTEXT_BODY_HTTP_REFERRER_MISSING になる。
+        # Origin との併送で初めてリクエストコンテキストが成立する (実測)。
+        origin = urllib.parse.urlsplit(REFERER)
         headers["Referer"] = REFERER
+        headers["Origin"] = f"{origin.scheme}://{origin.netloc}"
 
     try:
         status, reason, body = http_get(f"{ENDPOINT}?{query}", headers)

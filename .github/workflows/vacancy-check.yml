@@ -11,7 +11,6 @@ on:
   push:
     paths:
       - 'tools/vacancy_query.json'
-      - 'tools/diagnose_rakuten.py'
       - 'tools/vacancy_search.py'
       - '.github/workflows/vacancy-check.yml'
   workflow_dispatch:
@@ -82,12 +81,6 @@ jobs:
           fi
           {
             echo '```'
-            # 403 の切り分け用。原因が判明したらこのステップごと削除する。
-            if [ -f tools/diagnose_rakuten.py ]; then
-              echo '--- 認証方式の切り分け ---'
-              python tools/diagnose_rakuten.py || true
-              echo '--- 空室検索 ---'
-            fi
             python tools/vacancy_search.py
             echo '```'
           } | tee -a "$GITHUB_STEP_SUMMARY"
