@@ -1,9 +1,16 @@
 {
   "_comment": "検索条件。このファイルを書き換えて push すると Actions が空室を照会し、結果を実行サマリに出す。",
+  "referer": "https://github.com/HirotakaKaminishi/vacancy-check",
   "checkin": "2026-09-19",
   "checkout": "2026-09-20",
   "adults": 3,
   "rooms": 1,
-  "areas": ["有馬温泉", "神戸三宮", "京都駅周辺", "伊勢市駅周辺", "賢島（志摩）"],
+  "areas": [
+    "有馬温泉",
+    "神戸三宮",
+    "京都駅周辺",
+    "伊勢市駅周辺",
+    "賢島（志摩）"
+  ],
   "custom_areas": {}
 }

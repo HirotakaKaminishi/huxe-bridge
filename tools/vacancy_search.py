@@ -13,6 +13,7 @@
     CHECKIN / CHECKOUT    YYYY-MM-DD
     ADULTS / ROOMS        大人の人数 / 部屋数
     AREAS                 カンマ区切りのエリア名
+    RAKUTEN_REFERER       アプリ登録時の Application URL。未指定だと 403
 
 ローカル実行:
     export RAKUTEN_APP_ID=xxxx RAKUTEN_ACCESS_KEY=xxxx
@@ -69,6 +70,11 @@ def setting(env_name, key, default):
         return str(value)
     return default
 
+
+# openapi ゲートウェイは Referer をアプリ登録時の URL と照合する。
+# ブラウザ経由ではないので自分で付けないと
+# REQUEST_CONTEXT_BODY_HTTP_REFERRER_MISSING で 403 になる。
+REFERER = setting("RAKUTEN_REFERER", "referer", "")
 
 CHECKIN = setting("CHECKIN", "checkin", "2026-09-19")
 CHECKOUT = setting("CHECKOUT", "checkout", "2026-09-20")
@@ -160,7 +166,10 @@ def search(lat, lng, radius, page=1):
         "page": page,
     }
     query = urllib.parse.urlencode({k: v for k, v in params.items() if v is not None})
-    req = urllib.request.Request(f"{ENDPOINT}?{query}", headers={"accessKey": ACCESS_KEY})
+    headers = {"accessKey": ACCESS_KEY}
+    if REFERER:
+        headers["Referer"] = REFERER
+    req = urllib.request.Request(f"{ENDPOINT}?{query}", headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=15) as r:
             return json.load(r)
