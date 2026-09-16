@@ -22,6 +22,7 @@
 
 GitHub Actions からは .github/workflows/vacancy-check.yml で実行する。
 """
+import http.client
 import json
 import os
 import pathlib
@@ -139,6 +140,26 @@ def selected_areas():
     return picked or areas
 
 
+def http_get(url, headers):
+    """ヘッダ名の大文字小文字を保ったまま GET する。
+
+    urllib は do_open でヘッダ名を .title() するため accessKey が
+    Accesskey に変わる。楽天のゲートウェイはこれを認識しない。
+    """
+    parts = urllib.parse.urlsplit(url)
+    conn = http.client.HTTPSConnection(parts.netloc, timeout=15)
+    try:
+        path = parts.path + (f"?{parts.query}" if parts.query else "")
+        conn.putrequest("GET", path, skip_accept_encoding=True)
+        for name, value in headers.items():
+            conn.putheader(name, value)
+        conn.endheaders()
+        resp = conn.getresponse()
+        return resp.status, resp.reason, resp.read().decode("utf-8", "replace")
+    finally:
+        conn.close()
+
+
 def search(lat, lng, radius, page=1):
     """1ページ分を取得する。条件に合う空室が無ければ None。"""
     global _last_call
@@ -169,19 +190,22 @@ def search(lat, lng, radius, page=1):
     headers = {"accessKey": ACCESS_KEY}
     if REFERER:
         headers["Referer"] = REFERER
-    req = urllib.request.Request(f"{ENDPOINT}?{query}", headers=headers)
+
     try:
-        with urllib.request.urlopen(req, timeout=15) as r:
-            return json.load(r)
-    except urllib.error.HTTPError as e:
-        if e.code == 404:       # 条件に合う空室なし
-            return None
-        body = e.read().decode("utf-8", "replace").strip()
-        raise ApiError(f"HTTP {e.code} {e.reason}: {redact(body)[:400] or '(本文なし)'}") from None
-    except urllib.error.URLError as e:
-        raise ApiError(f"接続失敗: {e.reason}") from None
+        status, reason, body = http_get(f"{ENDPOINT}?{query}", headers)
+    except OSError as e:
+        raise ApiError(f"接続失敗: {e}") from None
     finally:
         _last_call = time.monotonic()
+
+    if status == 404:           # 条件に合う空室なし
+        return None
+    if status != 200:
+        raise ApiError(f"HTTP {status} {reason}: {redact(body.strip())[:400] or '(本文なし)'}")
+    try:
+        return json.loads(body)
+    except json.JSONDecodeError as e:
+        raise ApiError(f"JSON として読めない応答: {e}") from None
 
 
 def search_all(lat, lng, radius, max_pages=3):
