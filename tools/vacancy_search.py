@@ -13,6 +13,7 @@
     CHECKIN / CHECKOUT    YYYY-MM-DD
     ADULTS / ROOMS        大人の人数 / 部屋数
     AREAS                 カンマ区切りのエリア名
+    DETAIL                1 なら宿ごとに全プランを出す (既定は最安1件)
     RAKUTEN_REFERER       アプリ登録時の Application URL。未指定だと 403
 
 ローカル実行:
@@ -251,8 +252,33 @@ def plans(hotel):
         yield basic, next(walk(room_info, "dailyCharge"), {})
 
 
+def group_by_hotel(hotels):
+    """searchPattern=1 はプラン単位で同じ宿が何度も返るので宿ごとに束ねる。"""
+    grouped = {}
+    for hotel in hotels:
+        basic = next(walk(hotel, "hotelBasicInfo"), {})
+        key = basic.get("hotelNo") or basic.get("hotelName")
+        entry = grouped.setdefault(key, {"basic": basic, "plans": []})
+        for room, charge in plans(hotel):
+            total = charge.get("total")
+            if isinstance(total, int):
+                entry["plans"].append((total, room))
+    for entry in grouped.values():
+        entry["plans"].sort(key=lambda p: p[0])
+    return grouped
+
+
+def describe(total, room):
+    meal = ("夕" if room.get("withDinnerFlag") else "") + \
+           ("朝" if room.get("withBreakfastFlag") else "")
+    plan = (room.get("planName") or "(プラン名なし)")[:38]
+    return (f"{total:,}円 / {room.get('roomName') or '-'} / {plan} / 食事:{meal or 'なし'}")
+
+
 def main():
-    print(f"検索条件: {CHECKIN} → {CHECKOUT} / 大人{ADULTS}名 / {ROOMS}室")
+    detail = os.environ.get("DETAIL") == "1"
+    print(f"検索条件: {CHECKIN} → {CHECKOUT} / 大人{ADULTS}名 / {ROOMS}室"
+          f"{' / 全プラン表示' if detail else ''}")
 
     for name, (lat, lng, radius) in selected_areas().items():
         print(f"\n=== {name} ===")
@@ -262,23 +288,31 @@ def main():
             print(f"  照会失敗: {e}")
             continue
 
-        if not hotels:
+        grouped = group_by_hotel(hotels)
+        if not grouped:
             print("  空室なし")
             continue
 
-        for hotel in hotels:
-            basic = next(walk(hotel, "hotelBasicInfo"), {})
+        # 予算制限なしの想定なので高い宿から並べる
+        ranked = sorted(grouped.values(),
+                        key=lambda e: e["plans"][-1][0] if e["plans"] else 0,
+                        reverse=True)
+        print(f"  空室のある宿: {len(ranked)}軒")
+
+        for entry in ranked:
+            basic, found = entry["basic"], entry["plans"]
             print(f"\n  {basic.get('hotelName')}  ★{basic.get('reviewAverage') or '-'}"
                   f"  TEL {basic.get('telephoneNo') or '-'}")
-            for room, charge in plans(hotel):
-                meal = ("夕" if room.get("withDinnerFlag") else "") + \
-                       ("朝" if room.get("withBreakfastFlag") else "")
-                total = charge.get("total")
-                price = f"合計{total:,}円" if isinstance(total, int) else "料金未掲載"
-                plan = (room.get("planName") or room.get("roomName") or "(プラン名なし)")[:40]
-                print(f"    - {room.get('roomName') or '-'} / {plan} / {price} / 食事:{meal or 'なし'}")
-                if room.get("reserveUrl"):
-                    print(f"      {room['reserveUrl']}")
+            if not found:
+                print("    料金の出ているプランなし")
+                continue
+            low, high = found[0][0], found[-1][0]
+            span = f"{low:,}円" if low == high else f"{low:,}〜{high:,}円"
+            print(f"    プラン{len(found)}件 / {span} ({ADULTS}名合計)")
+            for total, room in (found if detail else found[:1]):
+                print(f"    - {describe(total, room)}")
+            if basic.get("planListUrl"):
+                print(f"    {basic['planListUrl']}")
 
 
 if __name__ == "__main__":
