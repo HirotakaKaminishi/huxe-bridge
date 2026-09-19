@@ -880,6 +880,11 @@
       "slug": "2026-07-14-164f6b07ab",
       "url": "http://spice-api.eplus.jp/rss/articles/4/latest.xml?encoded=1"
     },
+    "16cac1193decd0ba34363e5a664f6c263f12888f": {
+      "guid": "https://www.lisani.jp/?p=318374",
+      "slug": "2026-09-19-16cac1193d",
+      "url": "https://lisani.jp/feed/"
+    },
     "16ce3a5f1fc79e6cc8ad533b46ba1bfe4f304c1f": {
       "guid": "https://animeanime.jp/article/2026/08/19/102184.html",
       "slug": "2026-08-19-16ce3a5f1f",
@@ -1085,6 +1090,11 @@
       "slug": "2026-09-11-1b3c1efa51",
       "url": "https://lisani.jp/feed/"
     },
+    "1b3f7ad11504d7b0e102f2a87af29c87755b8e90": {
+      "guid": "https://www.lisani.jp/?p=318380",
+      "slug": "2026-09-19-1b3f7ad115",
+      "url": "https://lisani.jp/feed/"
+    },
     "1b56be574effc7cd585d69cc0f4ba1f372ca9b4f": {
       "guid": "347438",
       "slug": "2026-07-07-1b56be574e",
@@ -1190,6 +1200,11 @@
       "guid": "https://www.lisani.jp/?p=316776",
       "slug": "2026-08-29-1df5dcd0c8",
       "url": "https://lisani.jp/feed/"
+    },
+    "1e1c622930f77670bb052b4559f78c2fa4523042": {
+      "guid": "https://animeanime.jp/article/2026/09/19/103086.html",
+      "slug": "2026-09-19-1e1c622930",
+      "url": "https://animeanime.jp/rss/index.rdf"
     },
     "1e1ecaec1db4f4ba557e93699a15a1f90e94a878": {
       "guid": "https://www.lisani.jp/?p=312886",
@@ -1528,6 +1543,11 @@
       "guid": "https://www.lisani.jp/?p=312208",
       "slug": "2026-06-30-25b781a2e5",
       "url": "https://lisani.jp/feed/"
+    },
+    "25bf09693603cb3d9f093b2fa0a1ba927318fe6f": {
+      "guid": "https://animeanime.jp/article/2026/09/19/103084.html",
+      "slug": "2026-09-19-25bf096936",
+      "url": "https://animeanime.jp/rss/index.rdf"
     },
     "25c6ab6e6565f84dff69ff13b8530b6e181c572e": {
       "guid": "347783",
@@ -2035,6 +2055,11 @@
     "318a79d76f9c5850e93198309e2308ba04ef354f": {
       "guid": "https://www.lisani.jp/?p=312016",
       "slug": "2026-06-26-318a79d76f",
+      "url": "https://lisani.jp/feed/"
+    },
+    "319ee0ba5304e63452457b34c77258f895afc3ca": {
+      "guid": "https://www.lisani.jp/?p=318363",
+      "slug": "2026-09-19-319ee0ba53",
       "url": "https://lisani.jp/feed/"
     },
     "31b6b5146db1cec8a68129a51704a6bf03e03dcf": {
@@ -2985,6 +3010,11 @@
       "slug": "2026-08-24-4c53bf786e",
       "url": "http://spice-api.eplus.jp/rss/articles/4/latest.xml?encoded=1"
     },
+    "4c645c043babbc512cb855de6e6ba97f342663da": {
+      "guid": "349164",
+      "slug": "2026-09-19-4c645c043b",
+      "url": "http://spice-api.eplus.jp/rss/articles/4/latest.xml?encoded=1"
+    },
     "4c84e24f1a91fea0dbd0e01ce7fcfad7b6fbf674": {
       "guid": "https://animeanime.jp/article/2026/06/12/99971.html",
       "slug": "2026-06-12-4c84e24f1a",
@@ -3539,6 +3569,11 @@
     "5a5458f3bda888675f49244d670172059bb9d1f4": {
       "guid": "https://animeanime.jp/article/2026/09/04/102671.html",
       "slug": "2026-09-04-5a5458f3bd",
+      "url": "https://animeanime.jp/rss/index.rdf"
+    },
+    "5ab530afda11dd9bd6aae013f586f6ded29bc20a": {
+      "guid": "https://animeanime.jp/article/2026/09/19/103087.html",
+      "slug": "2026-09-19-5ab530afda",
       "url": "https://animeanime.jp/rss/index.rdf"
     },
     "5b2d568ad5e36e61001f65b340cd3899fcfe036a": {
@@ -4671,6 +4706,11 @@
       "slug": "2026-06-11-7db34e22b0",
       "url": "http://spice-api.eplus.jp/rss/articles/4/latest.xml?encoded=1"
     },
+    "7db8b57f0dd0bf4b94e6985fc14fada8787c41ac": {
+      "guid": "https://animeanime.jp/article/2026/09/19/103085.html",
+      "slug": "2026-09-19-7db8b57f0d",
+      "url": "https://animeanime.jp/rss/index.rdf"
+    },
     "7e28461127aa2111b8173a9887170128b02285f1": {
       "guid": "https://animeanime.jp/article/2026/06/01/99554.html",
       "slug": "2026-06-01-7e28461127",
@@ -5248,6 +5288,11 @@
       "slug": "2026-08-12-9027ba96f1",
       "url": "https://animeanime.jp/rss/index.rdf"
     },
+    "902ab8f934c9c83051a8ca9bca8ce46c888a64ba": {
+      "guid": "349129",
+      "slug": "2026-09-19-902ab8f934",
+      "url": "http://spice-api.eplus.jp/rss/articles/4/latest.xml?encoded=1"
+    },
     "902c520b7184abeb7d72698b42212cf99338ba0f": {
       "guid": "https://www.lisani.jp/?p=311685",
       "slug": "2026-06-23-902c520b71",
@@ -5366,6 +5411,11 @@
     "93147114ccd036485bce9a71ef3b763108bc67bf": {
       "guid": "https://www.lisani.jp/?p=309261",
       "slug": "2026-05-21-93147114cc",
+      "url": "https://lisani.jp/feed/"
+    },
+    "9336cec877a07de0440cb146dd0eb825a1bbe96d": {
+      "guid": "https://www.lisani.jp/?p=318369",
+      "slug": "2026-09-19-9336cec877",
       "url": "https://lisani.jp/feed/"
     },
     "93538527262bc2af40162d3e18c0aca28687c86c": {
@@ -6054,6 +6104,11 @@
       "slug": "2026-08-17-a64392ae44",
       "url": "https://lisani.jp/feed/"
     },
+    "a6512a831b5f0f6680c476c99cef35ad4af6eee0": {
+      "guid": "349122",
+      "slug": "2026-09-18-a6512a831b",
+      "url": "http://spice-api.eplus.jp/rss/articles/4/latest.xml?encoded=1"
+    },
     "a697c819636d17644d2d4f68619712b55dc71e62": {
       "guid": "https://animeanime.jp/article/2026/07/25/101436.html",
       "slug": "2026-07-25-a697c81963",
@@ -6571,6 +6626,11 @@
     "b57391696e1a502cba216a8786c51b573e06f61b": {
       "guid": "https://animeanime.jp/article/2026/09/04/102673.html",
       "slug": "2026-09-04-b57391696e",
+      "url": "https://animeanime.jp/rss/index.rdf"
+    },
+    "b57ec5588ed272776d19c1e7283c957e4e8d02cc": {
+      "guid": "https://animeanime.jp/article/2026/09/20/103088.html",
+      "slug": "2026-09-20-b57ec5588e",
       "url": "https://animeanime.jp/rss/index.rdf"
     },
     "b62cccb154fee4bfb2f96653bd8e3ccd6fca2396": {
@@ -7168,6 +7228,11 @@
       "slug": "2026-09-09-c5b355e5b4",
       "url": "https://lisani.jp/feed/"
     },
+    "c5ff131bfaf63c6fe060152f63e9c56b86fd2d4d": {
+      "guid": "https://www.lisani.jp/?p=318347",
+      "slug": "2026-09-19-c5ff131bfa",
+      "url": "https://lisani.jp/feed/"
+    },
     "c6158b6c5bf07096ee79ed4d0b4fbc39000c3eda": {
       "guid": "https://animeanime.jp/article/2026/06/12/99996.html",
       "slug": "2026-06-12-c6158b6c5b",
@@ -7588,6 +7653,11 @@
       "guid": "https://www.lisani.jp/?p=316828",
       "slug": "2026-08-30-d09d6b039d",
       "url": "https://lisani.jp/feed/"
+    },
+    "d0ab019907f90791e9d10f11e71d7af786f3aed6": {
+      "guid": "349163",
+      "slug": "2026-09-19-d0ab019907",
+      "url": "http://spice-api.eplus.jp/rss/articles/4/latest.xml?encoded=1"
     },
     "d0bca64a3feb5ec51f767c6340d35828e41d1e83": {
       "guid": "347800",
@@ -8375,6 +8445,11 @@
       "guid": "https://www.lisani.jp/?p=311857",
       "slug": "2026-06-25-e5dd663622",
       "url": "https://lisani.jp/feed/"
+    },
+    "e605f39c8056ede8b83b30e3854636c0ad461ff1": {
+      "guid": "349166",
+      "slug": "2026-09-19-e605f39c80",
+      "url": "http://spice-api.eplus.jp/rss/articles/4/latest.xml?encoded=1"
     },
     "e623058f9c99e4eed04b713127cb0b5a3f5c4153": {
       "guid": "https://www.lisani.jp/?p=309386",
@@ -9367,6 +9442,6 @@
       "url": "https://lisani.jp/feed/"
     }
   },
-  "updated_at": "2026-09-18T20:36:07Z",
+  "updated_at": "2026-09-19T20:14:22Z",
   "version": 1
 }
