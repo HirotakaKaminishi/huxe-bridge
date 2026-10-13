@@ -96,6 +96,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "157b621a72c5b30226073c4b1616895eab22124a": {
+      "guid": "https://fidoalliance.org/?p=91516",
+      "slug": "2026-10-13-157b621a72",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "165e02c99a5b28dbed8b9f9fa864571952afd154": {
       "guid": "https://fidoalliance.org/?p=91135",
       "slug": "2026-09-11-165e02c99a",
@@ -266,6 +271,11 @@
       "slug": "2026-05-07-446eee9359",
       "url": "https://fidoalliance.org/feed/"
     },
+    "479aaebbebb53c87ac50519eee8065077c148b6b": {
+      "guid": "https://developer.chrome.com/blog/new-in-webgpu-155-156?hl=en",
+      "slug": "2026-10-07-479aaebbeb",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "4e53c786727e937368d96445f232e342c2c79761": {
       "guid": "https://fidoalliance.org/?p=91289",
       "slug": "2026-09-19-4e53c78672",
@@ -375,6 +385,11 @@
       "guid": "https://developer.chrome.com/blog/devtools-for-agents-3p-tools?hl=en",
       "slug": "2026-06-18-60d820d426",
       "url": "https://developer.chrome.com/blog/feed.xml"
+    },
+    "6109427d94e84b7dd22a0f4e9c78730c85435e02": {
+      "guid": "https://fidoalliance.org/?p=91519",
+      "slug": "2026-10-13-6109427d94",
+      "url": "https://fidoalliance.org/feed/"
     },
     "63053fda52087eaf3ff5a704546b11fe5a10a70d": {
       "bootstrap_skipped": true,
@@ -745,6 +760,11 @@
       "slug": "2026-08-23-b0a9be91e8",
       "url": "https://fidoalliance.org/feed/"
     },
+    "b14c04dba8beb178741094e8afad817993c7a6e4": {
+      "guid": "https://developer.chrome.com/blog/email-verification-october-2026?hl=en",
+      "slug": "2026-10-05-b14c04dba8",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "b14d6c439bcd480dbb53024721f4f55d78f744b1": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=87817",
@@ -988,6 +1008,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "e67441db301006d65cdbddf02511d6b1fe92b594": {
+      "guid": "https://developer.chrome.com/blog/chrome-156-beta?hl=en",
+      "slug": "2026-09-30-e67441db30",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "e81ac21bb346b8d279d48e6d04d51173739bea55": {
       "guid": "https://fidoalliance.org/?p=90653",
       "slug": "2026-08-18-e81ac21bb3",
@@ -998,6 +1023,11 @@
       "guid": "https://fidoalliance.org/?p=87876",
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
+    },
+    "ea34f1c200591afc073a42c59c22fcd1e91bf0ca": {
+      "guid": "https://developer.chrome.com/blog/html-in-canvas-ot-changes?hl=en",
+      "slug": "2026-09-29-ea34f1c200",
+      "url": "https://developer.chrome.com/blog/feed.xml"
     },
     "eb9b3bbcd3bbe5089513e8d148e115e785c108ce": {
       "guid": "https://fidoalliance.org/?p=91292",
@@ -1062,6 +1092,11 @@
       "slug": "2026-05-30-fce09967cd",
       "url": "https://fidoalliance.org/feed/"
     },
+    "fdf357d360dfee353db6c920cd5853dabd2ff0f5": {
+      "guid": "https://developer.chrome.com/blog/jpeg-xl-in-chrome?hl=en",
+      "slug": "2026-10-06-fdf357d360",
+      "url": "https://developer.chrome.com/blog/feed.xml"
+    },
     "fe2f60271293d8e134b3917051ad38cbf21130b9": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=87874",
@@ -1074,6 +1109,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-10-11T21:38:20Z",
+  "updated_at": "2026-10-13T00:17:59Z",
   "version": 1
 }
