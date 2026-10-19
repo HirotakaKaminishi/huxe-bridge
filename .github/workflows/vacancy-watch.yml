@@ -1,0 +1,101 @@
+name: vacancy-watch
+
+# 満室の宿を定期的に見張り、条件に合う空きが出たら Issue を立てて通知する。
+# Issue が作られるとリポジトリの購読者にメールが飛ぶので、それが通知手段になる。
+#
+# 宿泊日を過ぎたら自動的に何もしなくなる。役目が終わったらこのファイルを消すこと。
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: vacancy-watch
+  cancel-in-progress: false
+
+env:
+  CHECKIN: '2026-09-21'
+  CHECKOUT: '2026-09-22'
+  ADULTS: '1'
+  ROOMS: '1'
+  # 70823 = HOTEL nehako / 1729 = 湯本富士屋ホテル
+  HOTEL_NO: '70823,1729'
+  REQUIRE_MEAL: '夕朝'
+  DEADLINE: '20260921'
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Watch for vacancies
+        env:
+          RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
+          RAKUTEN_ACCESS_KEY: ${{ secrets.RAKUTEN_ACCESS_KEY }}
+          RAKUTEN_AFFILIATE_ID: ${{ secrets.RAKUTEN_AFFILIATE_ID }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ "$(date -u +%Y%m%d)" -gt "$DEADLINE" ]; then
+            echo "::notice::宿泊日を過ぎたため監視しません。vacancy-watch.yml を削除してください"
+            exit 0
+          fi
+          if [ -z "$RAKUTEN_APP_ID" ] || [ -z "$RAKUTEN_ACCESS_KEY" ]; then
+            echo "::error::Secrets が未設定です"
+            exit 1
+          fi
+
+          set +e
+          OUTPUT=$(python tools/vacancy_search.py 2>&1)
+          STATUS=$?
+          set -e
+          echo "$OUTPUT"
+          {
+            echo '```'
+            echo "$OUTPUT"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$STATUS" -ne 10 ]; then
+            echo "まだ空きなし (終了コード $STATUS)"
+            exit 0
+          fi
+
+          TITLE="空室あり: 箱根 2食付 ${CHECKIN}泊"
+          # 同じ Issue を15分おきに作らないよう、開いているものがあれば何もしない
+          if gh issue list --repo "$REPO" --state open --json title --jq '.[].title' \
+               | grep -Fxq "$TITLE"; then
+            echo "既に Issue があるので作成しません"
+            exit 0
+          fi
+
+          {
+            echo "条件に合う空室が見つかりました。**先着順なので早く押さえてください。**"
+            echo
+            echo "- 宿泊日: ${CHECKIN} → ${CHECKOUT}"
+            echo "- 人数: 大人${ADULTS}名 / ${ROOMS}室"
+            echo "- 食事条件: ${REQUIRE_MEAL}"
+            echo
+            echo '```'
+            echo "$OUTPUT"
+            echo '```'
+            echo
+            echo "実行ログ: ${RUN_URL}"
+            echo
+            echo "押さえ終わったら .github/workflows/vacancy-watch.yml を削除して監視を止めてください。"
+          } > issue-body.md
+
+          gh issue create --repo "$REPO" --title "$TITLE" --body-file issue-body.md
+          echo "Issue を作成しました"
