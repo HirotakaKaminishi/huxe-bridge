@@ -231,6 +231,11 @@
       "slug": "2026-10-15-3856f5c91c",
       "url": "https://fidoalliance.org/feed/"
     },
+    "38a7b56562c5002e09af193e52632fa70627a18d": {
+      "guid": "https://fidoalliance.org/?p=91811",
+      "slug": "2026-10-30-38a7b56562",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "3927d3ec200cce60dad908ff73a78443a1300784": {
       "guid": "https://fidoalliance.org/?p=89923",
       "slug": "2026-06-26-3927d3ec20",
@@ -257,6 +262,11 @@
       "guid": "https://developer.chrome.com/blog/io26-web-identity?hl=en",
       "slug": "2026-05-21-3f9ddc8e75",
       "url": "https://developer.chrome.com/blog/feed.xml"
+    },
+    "3ff292c406374aaf48ab4a2ee65c275168c15078": {
+      "guid": "https://fidoalliance.org/?p=91805",
+      "slug": "2026-10-30-3ff292c406",
+      "url": "https://fidoalliance.org/feed/"
     },
     "40f1026664d819836330466387d04f97d6110aa9": {
       "bootstrap_skipped": true,
@@ -305,6 +315,11 @@
       "guid": "https://developer.chrome.com/blog/new-in-webgpu-155-156?hl=en",
       "slug": "2026-10-07-479aaebbeb",
       "url": "https://developer.chrome.com/blog/feed.xml"
+    },
+    "48715eb62b5776a5ddecc664bf3cfda1ba7df4a1": {
+      "guid": "https://fidoalliance.org/?p=91802",
+      "slug": "2026-10-30-48715eb62b",
+      "url": "https://fidoalliance.org/feed/"
     },
     "4e53c786727e937368d96445f232e342c2c79761": {
       "guid": "https://fidoalliance.org/?p=91289",
@@ -359,6 +374,11 @@
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=88375",
       "slug": null,
+      "url": "https://fidoalliance.org/feed/"
+    },
+    "53bec2d931705f69ced616e0c3042190b246eb92": {
+      "guid": "https://fidoalliance.org/?p=91796",
+      "slug": "2026-10-30-53bec2d931",
       "url": "https://fidoalliance.org/feed/"
     },
     "545387c984f5ff0f79b670fc96624ceaa2189147": {
@@ -636,6 +656,11 @@
     "877730c8e46c1f2e0395a8d97dfee66e6eb0732c": {
       "guid": "https://fidoalliance.org/?p=89465",
       "slug": "2026-05-15-877730c8e4",
+      "url": "https://fidoalliance.org/feed/"
+    },
+    "87c20374d78a688b451f182e3d7ed9d65614f3e3": {
+      "guid": "https://fidoalliance.org/?p=91808",
+      "slug": "2026-10-30-87c20374d7",
       "url": "https://fidoalliance.org/feed/"
     },
     "895ec27a38ac39eb0c32e8976ec6dc7d97bc2c85": {
@@ -1189,6 +1214,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-10-29T22:33:06Z",
+  "updated_at": "2026-10-30T22:01:30Z",
   "version": 1
 }
