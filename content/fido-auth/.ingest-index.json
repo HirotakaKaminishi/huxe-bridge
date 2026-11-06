@@ -431,6 +431,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "60411a528fc4d52be3d75f88f31a43d62d1f78f9": {
+      "guid": "https://fidoalliance.org/?p=91892",
+      "slug": "2026-11-05-60411a528f",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "60d820d426bc3215dcaa3eeca6ac80e68493410d": {
       "guid": "https://developer.chrome.com/blog/devtools-for-agents-3p-tools?hl=en",
       "slug": "2026-06-18-60d820d426",
@@ -856,6 +861,11 @@
       "slug": null,
       "url": "https://fidoalliance.org/feed/"
     },
+    "b2c169d1382200c059583885a9b22c845fa8e1d5": {
+      "guid": "https://fidoalliance.org/?p=91913",
+      "slug": "2026-11-06-b2c169d138",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "b34e068ecaaa1943f02eb34a247106c2ec37efed": {
       "guid": "https://fidoalliance.org/?p=90105",
       "slug": "2026-07-08-b34e068eca",
@@ -1214,6 +1224,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-11-04T23:22:43Z",
+  "updated_at": "2026-11-06T22:50:40Z",
   "version": 1
 }
