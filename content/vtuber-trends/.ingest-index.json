@@ -694,6 +694,11 @@
       "slug": "2026-05-14-1754a213af",
       "url": "https://www.moguravr.com/feed/"
     },
+    "178023d3f1f5307d414121aae1dfaf3ecd8929ad": {
+      "guid": "https://panora.tokyo/?p=163200",
+      "slug": "2026-11-15-178023d3f1",
+      "url": "https://panora.tokyo/feed/"
+    },
     "17a053dc16c7a8e469fad6032228fc3bc7dd4dd2": {
       "guid": "https://www.moguravr.com/?p=315187",
       "slug": "2026-06-09-17a053dc16",
@@ -3799,6 +3804,11 @@
       "slug": "2026-08-13-72bff85cdd",
       "url": "https://panora.tokyo/feed/"
     },
+    "72cd31c868d94672c6024e3f8f1093d1d3a0a5d7": {
+      "guid": "https://panora.tokyo/?p=163173",
+      "slug": "2026-11-15-72cd31c868",
+      "url": "https://panora.tokyo/feed/"
+    },
     "72ea7bc55f6811db0f954fec9dba3ad709350d2f": {
       "guid": "https://panora.tokyo/?p=151452",
       "slug": "2026-08-05-72ea7bc55f",
@@ -4204,6 +4214,11 @@
       "guid": "https://www.moguravr.com/?p=379274",
       "slug": "2026-10-13-8060596ae8",
       "url": "https://www.moguravr.com/feed/"
+    },
+    "8080aecf9a2d6082680ef669faa3a30038fb889e": {
+      "guid": "https://panora.tokyo/?p=163152",
+      "slug": "2026-11-15-8080aecf9a",
+      "url": "https://panora.tokyo/feed/"
     },
     "808a45cbbdc798908e921a28d7663539277db93e": {
       "bootstrap_skipped": true,
@@ -4782,6 +4797,11 @@
     "915c0bb1b585231481e707e22e6e7438134cc040": {
       "guid": "https://panora.tokyo/?p=157547",
       "slug": "2026-09-23-915c0bb1b5",
+      "url": "https://panora.tokyo/feed/"
+    },
+    "916959dbc34abd5170e1f4b90d280fa95abb8476": {
+      "guid": "https://panora.tokyo/?p=163141",
+      "slug": "2026-11-15-916959dbc3",
       "url": "https://panora.tokyo/feed/"
     },
     "9180bed8761a2cb5869cb9f164588136b267459b": {
@@ -6157,6 +6177,11 @@
     "be01fec3ced3c7ccf5b76c8e0467551d3ca7237a": {
       "guid": "https://panora.tokyo/?p=151686",
       "slug": "2026-08-06-be01fec3ce",
+      "url": "https://panora.tokyo/feed/"
+    },
+    "be19d43241fa6d82a2127e80b29ecf9caa4394d9": {
+      "guid": "https://panora.tokyo/?p=163131",
+      "slug": "2026-11-15-be19d43241",
       "url": "https://panora.tokyo/feed/"
     },
     "be2214089cd74811b7982604ccf20e67dd6d8347": {
@@ -8708,6 +8733,6 @@
       "url": "https://panora.tokyo/feed/"
     }
   },
-  "updated_at": "2026-11-14T22:05:33Z",
+  "updated_at": "2026-11-15T22:36:28Z",
   "version": 1
 }
