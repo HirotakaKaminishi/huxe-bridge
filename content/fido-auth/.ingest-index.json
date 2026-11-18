@@ -999,6 +999,11 @@
       "slug": null,
       "url": "https://developer.chrome.com/blog/feed.xml"
     },
+    "cda0a5e30eedb687d30f0202e349bebf13833045": {
+      "guid": "https://fidoalliance.org/?p=92012",
+      "slug": "2026-11-18-cda0a5e30e",
+      "url": "https://fidoalliance.org/feed/"
+    },
     "cf088386b850021a4519fdca7aa30d9baa4729e8": {
       "bootstrap_skipped": true,
       "guid": "https://fidoalliance.org/?p=87819",
@@ -1234,6 +1239,6 @@
       "url": "https://fidoalliance.org/feed/"
     }
   },
-  "updated_at": "2026-11-17T01:43:23Z",
+  "updated_at": "2026-11-18T00:42:37Z",
   "version": 1
 }
